@@ -1,0 +1,183 @@
+.serviceGrid {
+  position: relative;
+  width: 100%;
+  max-width: 1410px;
+  margin: 0 auto;
+  margin-top: 40px;
+}
+
+.carouselOuter {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.carouselContainer {
+  width: 100%;
+  overflow: hidden;
+}
+.service-card {
+  max-width: 410px;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  padding-top: 36px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+  min-width: 410px;
+}
+.serviceCard {
+  flex: 1 1 auto;
+  min-width: 200px;
+  max-width: 100%;
+  height: auto;
+  background: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding-top: 36px;
+}
+
+/* Индикаторы */
+.carouselIndicators {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 10px;
+}
+.cardContent {
+  margin: 0 auto;
+  margin-bottom: 66px;
+  word-wrap: break-word;
+  padding: 0;
+}
+.indicator {
+  width: 30px;
+  height: 3px;
+  background: gray;
+  cursor: pointer;
+  transition: width 0.3s ease, background 0.3s ease;
+}
+
+.indicator.active {
+  width: 50px;
+  background: #007bff;
+}
+
+.carouselOuter {
+  position: relative;
+  width: 100%;
+}
+
+.carouselWrapper {
+  width: 100%;
+}
+
+.carouselOuter {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carouselContainer {
+  width: 100%;
+  overflow: hidden;
+}
+
+.carouselButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 50px;
+  height: 50px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.prev {
+  left: -70px;
+}
+
+.next {
+  right: -70px;
+}
+
+.carouselWrapper {
+  overflow: hidden;
+  height: 340px;
+}
+
+.carousel {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  gap: 30px;
+  width: max-content;
+}
+
+.carouselButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
+  width: 50px;
+  height: 50px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.prev {
+  left: -80px;
+}
+
+.next {
+  right: -80px;
+}
+.carouselButton:disabled {
+  background: #6c757d;
+  cursor: not-allowed;
+}
+
+.carouselContainer {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.carouselWrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+
+.carousel {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  gap: 30px;
+}
+
+@media (max-width: 768px) {
+  .carouselButton {
+    display: none;
+  }
+}

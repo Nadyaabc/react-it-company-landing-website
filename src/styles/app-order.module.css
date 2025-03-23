@@ -1,0 +1,221 @@
+* {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  margin: 0 auto;
+  padding: 0;
+}
+.error {
+  color: red;
+  font-size: 14px;
+  display: none;
+}
+.selected {
+  border: 2px solid blue;
+}
+.container {
+  background-color: #fef4ff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1793px;
+  border-radius: 27px;
+  height: auto;
+  padding: 0;
+}
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+.mainContainer h1 {
+  font-size: 55px;
+  padding: 0;
+  margin: 0;
+  line-height: normal;
+  margin-top: 110px;
+  margin-bottom: 56px;
+}
+.mainContent {
+  display: flex;
+  flex-direction: row;
+  gap: 86px;
+  width: 100%;
+  margin:0;
+}
+.budget h2,
+.contactData h2 {
+  font-size: 20px;
+  font-weight: 300;
+  text-align: left;
+  margin: 0;
+  line-height: 128%;
+}
+.budget {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  margin:0;
+}
+
+.budgetGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 15px;
+  grid-row-gap: 20px;
+}
+
+.box {
+  border: 1px solid #3980ff;
+  border-radius: 93px;
+  width: 315px;
+  height: 106px;
+  text-align: center;
+  background-color: #ffffff;
+  transition: background-color 0.3s;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  box-sizing: border-box;
+}
+.box p {
+  margin: auto auto;
+  font-weight: bold;
+}
+
+.box:hover,
+.box.selected {
+  background-color: #3980ff;
+  color: white;
+}
+
+/*контакты*/
+.contactData {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+  margin:0;
+
+}
+
+.formGroup {
+  margin-bottom: 9.5px;
+  width: 471px;
+}
+input[type="text"] {
+  height: 64px;
+}
+textarea {
+  height: 202px;
+  padding-top: 22px;
+  overflow: hidden;
+  
+}
+
+input[type="text"],
+textarea {
+  width: 100%;
+  outline: none;
+  padding-left: 34px;
+  border: 1px solid #acacac;
+  border-radius: 10px;
+  color: #acacac;
+  box-sizing: border-box;
+  resize: none;
+}
+
+button {
+  margin-top: 9px;
+  background-color: #3980ff;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 17px;
+  width: 320px;
+  height: 73px;
+}
+input[type="text"]:hover,
+textarea:hover,
+input[type="text"]:focus-within,
+textarea:focus {
+  border: 3px solid #3980ff;
+  color: #000;
+  font-weight: 300;
+}
+
+button input:hover {
+  background-color: #0056b3;
+}
+main p{
+font-size: 16px;;
+}
+
+@media (max-width: 1280px) {
+  main {
+    max-width: 90%;
+  }
+
+  .mainContainer {
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .mainContainer h1 {
+    margin-top: 5%;
+  }
+
+  .mainContent {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 0;
+    gap: 44px;
+  }
+  .form-group {
+    width: 100%;
+  }
+  button input {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1023px) {
+  .mainContainer {
+    margin-bottom: 5%;
+  }
+}
+
+@media (max-width: 768px) {
+  * {
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+
+  .mainContainer h1 {
+    font-size: 2.5em;
+    margin: 5%;
+  }
+  .budgetGrid {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  .mainContent {
+    width: 100%;
+  }
+  .box {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 16px;
+  }
+  .mainContainer h1 {
+    font-size: 2em;
+    margin: 10%;
+  }
+}
