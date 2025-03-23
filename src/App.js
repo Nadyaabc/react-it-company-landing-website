@@ -10,7 +10,7 @@ import './App.css';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/react-it-company-landing-website">
       <div className="container">
 
         <Routes>
