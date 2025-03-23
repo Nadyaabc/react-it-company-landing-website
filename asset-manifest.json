@@ -1,0 +1,39 @@
+{
+  "files": {
+    "main.css": "/react-it-company-landing-website/static/css/main.fa35d07a.css",
+    "main.js": "/react-it-company-landing-website/static/js/main.0a012af7.js",
+    "static/js/453.ad6eb26e.chunk.js": "/react-it-company-landing-website/static/js/453.ad6eb26e.chunk.js",
+    "static/media/dev-stage-3.svg": "/react-it-company-landing-website/static/media/dev-stage-3.cd7fbe5b374a7187b3e0f70b2349602b.svg",
+    "static/media/second-phone.svg": "/react-it-company-landing-website/static/media/second-phone.03015d5da32f3d0a6110b05867594844.svg",
+    "static/media/dev-stage-4.svg": "/react-it-company-landing-website/static/media/dev-stage-4.d57e6ef1ad63bbf20d8dde6e6b5ebf3e.svg",
+    "static/media/main-phone.svg": "/react-it-company-landing-website/static/media/main-phone.fcb35c8ea7fe6ce59b08346b532d00d0.svg",
+    "static/media/dev-stage-1.svg": "/react-it-company-landing-website/static/media/dev-stage-1.1ce1e755a10c53b6b34593a878bb605c.svg",
+    "static/media/new_year.jpg": "/react-it-company-landing-website/static/media/new_year.4a8b62d96a5c20566ceb.jpg",
+    "static/media/office.jpg": "/react-it-company-landing-website/static/media/office.078e10dc48affbbfcfae.jpg",
+    "static/media/chistmas.jpg": "/react-it-company-landing-website/static/media/chistmas.a93a45e08dfedc0a673f.jpg",
+    "static/media/dev-stage-6.svg": "/react-it-company-landing-website/static/media/dev-stage-6.1a62b3917c51e0860026631d395400ac.svg",
+    "static/media/meeting.jpg": "/react-it-company-landing-website/static/media/meeting.c2d015b9d8b37dfa04ec.jpg",
+    "static/media/dev-stage-2.svg": "/react-it-company-landing-website/static/media/dev-stage-2.fc41a72d822b50a4065e4d4ef0215a44.svg",
+    "static/media/logo.svg": "/react-it-company-landing-website/static/media/logo.fa2dc870f53d8e5cca3683d41cdffda2.svg",
+    "static/media/dev-stage-7.svg": "/react-it-company-landing-website/static/media/dev-stage-7.0667af5a4bd2f6e1ab705e6443045b99.svg",
+    "static/media/dev-stage-5.svg": "/react-it-company-landing-website/static/media/dev-stage-5.bd1eb69d31534d32ea287a2e4720e226.svg",
+    "static/media/service-icon2.svg": "/react-it-company-landing-website/static/media/service-icon2.b68ce8fb739967cd955d59ee06774490.svg",
+    "static/media/service-icon3.svg": "/react-it-company-landing-website/static/media/service-icon3.4fa3bd98fb5fb77aa805e25a68af050e.svg",
+    "static/media/pricing-icon3.svg": "/react-it-company-landing-website/static/media/pricing-icon3.3db85f2dd3e47973a2720a56d2971c46.svg",
+    "static/media/pricing-icon2.svg": "/react-it-company-landing-website/static/media/pricing-icon2.3b9f28dbd6460507d4367c082f453b17.svg",
+    "static/media/rocket.svg": "/react-it-company-landing-website/static/media/rocket.770b0564a506734fc20b5eac8f1e7840.svg",
+    "static/media/pricing-icon1.svg": "/react-it-company-landing-website/static/media/pricing-icon1.ab059ac40c5f11336c11fb0aec1f52f4.svg",
+    "static/media/service-icon1.svg": "/react-it-company-landing-website/static/media/service-icon1.3aea2b2c3d452cf5e5dae874198d7bd6.svg",
+    "static/media/viber-icon.svg": "/react-it-company-landing-website/static/media/viber-icon.0566df2ecac39895c89ec8dbede46801.svg",
+    "static/media/cup.svg": "/react-it-company-landing-website/static/media/cup.1c7cf445d501a832b90412c36fda1ba8.svg",
+    "static/media/telegram-icon.svg": "/react-it-company-landing-website/static/media/telegram-icon.2362de910d2e9f2943266dc3fc225f6b.svg",
+    "index.html": "/react-it-company-landing-website/index.html",
+    "main.fa35d07a.css.map": "/react-it-company-landing-website/static/css/main.fa35d07a.css.map",
+    "main.0a012af7.js.map": "/react-it-company-landing-website/static/js/main.0a012af7.js.map",
+    "453.ad6eb26e.chunk.js.map": "/react-it-company-landing-website/static/js/453.ad6eb26e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fa35d07a.css",
+    "static/js/main.0a012af7.js"
+  ]
+}
