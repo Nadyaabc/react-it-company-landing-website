@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 
 import officeImage from '../assets/images/jpg/office.jpg';
@@ -9,7 +9,17 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import styles from "../styles/about-us.module.css"; // Импорт стилей
 
+import ImageViewer from "../components/ImageViewer";
 const AboutUs = () => {
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  const handleImageClick = (imageSrc) => {
+    setSelectedImage(imageSrc);
+  };
+
+  const closeImageViewer = () => {
+    setSelectedImage(null);
+  };
   return (
 
       <div className={styles.container}>
@@ -77,32 +87,51 @@ const AboutUs = () => {
             </div>
           </section>
           <div className={styles.title}>
-            <h1>Наша корпоративная жизнь</h1>
-          </div>
-          <div className={styles.photos}>
-            <figure>
-              <img src={officeImage} alt="office" title="Посмотреть поближе" />
-              <figcaption>Наш офис</figcaption>
-            </figure>
-            <figure>
-              <img src={meetingImage} alt="meeting" title="Посмотреть поближе" />
-              <figcaption>Утреннее собрание</figcaption>
-            </figure>
-            <figure>
-              <img src={newYearImage} alt="new_year" title="Посмотреть поближе" />
-              <figcaption>Новый 2025 год</figcaption>
-            </figure>
-            <figure>
-              <img
-                src={chistmasImage}
-                alt="chistmas"
-                title="Посмотреть поближе"
-              />
-              <figcaption>Новогодний корпоратив</figcaption>
-            </figure>
-          </div>
+          <h1>Наша корпоративная жизнь</h1>
+        </div>
+        <div className={styles.photos}>
+          <figure>
+            <img 
+              src={officeImage} 
+              alt="office" 
+              title="Посмотреть поближе" 
+              onClick={() => handleImageClick(officeImage)} 
+            />
+            <figcaption>Наш офис</figcaption>
+          </figure>
+          <figure>
+            <img 
+              src={meetingImage} 
+              alt="meeting" 
+              title="Посмотреть поближе" 
+              onClick={() => handleImageClick(meetingImage)} 
+            />
+            <figcaption>Утреннее собрание</figcaption>
+          </figure>
+          <figure>
+            <img 
+              src={newYearImage} 
+              alt="new_year" 
+              title="Посмотреть поближе" 
+              onClick={() => handleImageClick(newYearImage)} 
+            />
+            <figcaption>Новый 2025 год</figcaption>
+          </figure>
+          <figure>
+            <img
+              src={chistmasImage}
+              alt="chistmas"
+              title="Посмотреть поближе"
+              onClick={() => handleImageClick(chistmasImage)}
+            />
+            <figcaption>Новогодний корпоратив</figcaption>
+          </figure>
+        </div>
         </main>
         <Footer />
+        {selectedImage && (
+        <ImageViewer src={selectedImage} onClose={closeImageViewer} />
+      )}
       </div>
 
   );

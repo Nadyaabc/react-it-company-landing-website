@@ -1,0 +1,21 @@
+.viewer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    touch-action: none; /* Блокирует прокрутку на тач-устройствах */
+  }
+  
+  .zoomable {
+    max-width: 80vw;
+    max-height: 80vh;
+    transition: transform 0.2s ease-in-out;
+    cursor: zoom-out;
+    pointer-events: auto; /* Обеспечивает обработку событий на изображении */
+  }
