@@ -63,9 +63,10 @@
   background: gray;
   cursor: pointer;
   transition: width 0.3s ease, background 0.3s ease;
+  margin:0 0;
 }
 
-.indicator.active {
+.indicatorActive {
   width: 50px;
   background: #007bff;
 }
@@ -181,3 +182,5 @@
     display: none;
   }
 }
+
+

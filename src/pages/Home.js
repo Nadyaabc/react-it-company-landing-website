@@ -206,11 +206,11 @@ const Main = () => {
                 </button>
               </div>
               <div className={carousel.carouselIndicators}>
-                {[...Array(maxIndex + 1)].map((_, i) => (
+                {services.slice(0, maxIndex + 1).map((_, i) => (
                   <div
                     key={i}
                     className={`${carousel.indicator} ${
-                      i === index ? carousel.active : ""
+                      index === i ? carousel.indicatorActive : ""
                     }`}
                     onClick={() => setIndex(i)}
                   />
