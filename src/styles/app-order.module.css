@@ -1,42 +1,32 @@
 * {
   font-family: "Open Sans", sans-serif;
   font-size: 16px;
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
-  box-sizing: border-box;
 }
-
 .error {
   color: red;
   font-size: 14px;
   display: none;
 }
-
 .selected {
   border: 2px solid blue;
 }
-
 .container {
   background-color: #fef4ff;
   display: flex;
   flex-direction: column;
   align-items: center;
   max-width: 1793px;
-  width: 100%;
   border-radius: 27px;
   height: auto;
-  padding: 20px;
+  padding: 0;
 }
-
 .mainContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
-  max-width: 1200px;
-  padding: 0 20px;
 }
-
 .mainContainer h1 {
   font-size: 55px;
   padding: 0;
@@ -44,9 +34,7 @@
   line-height: normal;
   margin-top: 110px;
   margin-bottom: 56px;
-  text-align: center;
 }
-
 .mainContent {
   display: flex;
   flex-direction: row;
@@ -54,7 +42,6 @@
   width: 100%;
   margin: 0;
 }
-
 .budget h2,
 .contactData h2 {
   font-size: 20px;
@@ -63,13 +50,11 @@
   margin: 0;
   line-height: 128%;
 }
-
 .budget {
   display: flex;
   flex-direction: column;
   gap: 26px;
   margin: 0;
-  width: 100%;
 }
 
 .budgetGrid {
@@ -77,14 +62,12 @@
   grid-template-columns: repeat(2, 1fr);
   grid-column-gap: 15px;
   grid-row-gap: 20px;
-  width: 100%;
 }
 
 .box {
   border: 1px solid #3980ff;
   border-radius: 93px;
-  width: 100%;
-  max-width: 315px;
+  width: 315px;
   height: 106px;
   text-align: center;
   background-color: #ffffff;
@@ -92,8 +75,8 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  box-sizing: border-box;
 }
-
 .box p {
   margin: auto auto;
   font-weight: bold;
@@ -105,25 +88,21 @@
   color: white;
 }
 
-/* Контакты */
+/*контакты*/
 .contactData {
   display: flex;
   flex-direction: column;
   gap: 35px;
   margin: 0;
-  width: 100%;
 }
 
 .formGroup {
   margin-bottom: 9.5px;
-  width: 100%;
-  max-width: 471px;
+  width: 471px;
 }
-
 input[type="text"] {
   height: 64px;
 }
-
 textarea {
   height: 202px;
   padding-top: 22px;
@@ -138,6 +117,7 @@ textarea {
   border: 1px solid #acacac;
   border-radius: 10px;
   color: #acacac;
+  box-sizing: border-box;
   resize: none;
 }
 
@@ -149,11 +129,9 @@ button {
   border-radius: 10px;
   cursor: pointer;
   font-size: 17px;
-  width: 100%;
-  max-width: 320px;
+  width: 320px;
   height: 73px;
 }
-
 input[type="text"]:hover,
 textarea:hover,
 input[type="text"]:focus-within,
@@ -163,115 +141,78 @@ textarea:focus {
   font-weight: 300;
 }
 
-button:hover {
+button input:hover {
   background-color: #0056b3;
 }
-
 main p {
   font-size: 16px;
 }
 
-/* Адаптивность */
-@media (max-width: 1200px) {
-  .mainContent {
-    gap: 40px;
+@media (max-width: 1280px) {
+  main {
+    max-width: 90%;
   }
-  
+
+  .mainContainer {
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+
   .mainContainer h1 {
-    margin-top: 80px;
-    margin-bottom: 40px;
-    font-size: 45px;
+    margin-top: 5%;
+  }
+
+  .mainContent {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 0;
+    gap: 44px;
+  }
+  .form-group {
+    width: 100%;
+  }
+  button input {
+    width: 100%;
   }
 }
 
-@media (max-width: 992px) {
-  .mainContent {
-    flex-direction: column;
-    gap: 50px;
-  }
-  
-  .budget,
-  .contactData {
-    max-width: 100%;
-  }
-  
-  .formGroup {
-    max-width: 100%;
-  }
-  
-  .budgetGrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  .box {
-    max-width: 100%;
+@media (max-width: 1023px) {
+  .mainContainer {
+    margin-bottom: 5%;
   }
 }
 
 @media (max-width: 768px) {
-  .mainContainer h1 {
-    font-size: 36px;
-    margin-top: 60px;
-    margin-bottom: 30px;
-  }
-  
-  .container {
-    border-radius: 20px;
-    padding: 15px;
-  }
-  
-  .box {
-    height: 90px;
-    border-radius: 50px;
-  }
-}
-
-@media (max-width: 576px) {
-  .mainContainer h1 {
-    font-size: 28px;
-    margin-top: 40px;
-    margin-bottom: 20px;
-  }
-  
-  .budgetGrid {
-    grid-template-columns: 1fr;
-    grid-row-gap: 15px;
-  }
-  
-  .box {
-    height: 80px;
-    border-radius: 40px;
-  }
-  
-  input[type="text"] {
-    height: 50px;
-    padding-left: 20px;
-  }
-  
-  textarea {
-    height: 150px;
-    padding-top: 15px;
-    padding-left: 20px;
-  }
-  
-  button {
-    height: 60px;
+  * {
+    box-sizing: border-box;
     font-size: 16px;
   }
-  
-  .budget h2,
-  .contactData h2 {
-    font-size: 18px;
+
+  .mainContainer h1 {
+    font-size: 2.5em;
+    margin: 5%;
+  }
+  .budgetGrid {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  .mainContent {
+    width: 100%;
+  }
+  .box {
+    width: 100%;
   }
 }
 
-@media (max-width: 400px) {
-  .mainContainer h1 {
-    font-size: 24px;
+@media (max-width: 480px) {
+  body {
+    font-size: 16px;
   }
-  
-  .container {
-    padding: 10px;
-    border-radius: 15px;
+  .mainContainer h1 {
+    font-size: 2em;
+    margin: 10%;
   }
 }

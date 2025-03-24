@@ -3,90 +3,69 @@
   font-size: 16px;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 main {
   width: 100%;
   max-width: 1350px;
   margin: 0 auto;
-  padding: 20px;
 }
-
-/* Main container */
+/* main*/
 .container {
   background-color: #fef4ff;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
   max-width: 1793px;
   border-radius: 27px;
   height: auto;
-  padding: 40px 20px;
+  padding: 0;
   margin: 0 auto;
-}
-
-.mainContainer {
-  width: 100%;
-  max-width: 1200px;
 }
 
 .mainContainer h1 {
   font-size: 55px;
-  font-weight: bold;
-  margin: 0 auto 30px;
-  text-align: center;
+  max-height: 114px;
   max-width: 702px;
-  line-height: 1.2;
+  font-weight: bold;
+  margin: 79px auto auto auto;
+  text-align: center;
 }
-
 .mainContainer h3 {
   margin-top: 40px;
   font-size: 16px;
   font-weight: normal;
   text-align: center;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
 }
-
 .pricingGrid {
-  width: 100%;
   max-width: 1350px;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   margin-top: 57px;
+  box-sizing: border-box;
 }
-
 .pricingCard {
-  width: 100%;
   max-width: 421px;
-  min-height: 503px;
+  width: 100%;
+  height: 503px;
   background-color: #fff;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  padding: 30px;
-  transition: transform 0.3s ease;
-}
-
-.pricingCard:hover {
-  transform: translateY(-5px);
+  box-sizing: border-box;
 }
 
 .cardContent {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
-  width: 100%;
+  justify-content: space-around;
+  margin: auto auto;
+  min-height: 424px;
 }
-
 .heading {
   display: flex;
   align-items: flex-end;
@@ -99,11 +78,9 @@ main {
   height: 51px;
   margin-right: 10px;
 }
-
 #icon1 {
   margin-right: 15px;
 }
-
 .heading h2 {
   margin: 0;
   font-size: 24px;
@@ -114,58 +91,65 @@ main {
 .cardContent ul {
   list-style-type: none;
   padding: 0;
-  width: 100%;
-  margin: 20px 0;
+  width: 300px;
 }
-
 .cardContent ul li {
   width: 100%;
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 8px 0;
 }
-
-.cardContent ul li span {
+.cardContent ul li span,
+.cardContent ul li img {
+  margin: 8.5px 0;
   font-size: 16px;
   color: #000;
 }
-
 .cardContent ul li img {
   width: 21px;
   height: 21px;
 }
-
 h2.cost {
   font-size: 24px;
   font-weight: bold;
-  margin: 20px 0;
+  margin: 41px 0 18px 0;
   text-align: center;
 }
 
 .order {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
   background-color: white;
   color: #3980ff;
   border: 1px solid #3980ff;
   border-radius: 10px;
+  box-sizing: border-box;
   cursor: pointer;
   font-size: 16px;
+  text-align: center;
   height: 73px;
-  width: 100%;
-  max-width: 278px;
-  margin: 0 auto;
+  width: 278px;
+  margin-bottom: 0;
+  align-self: center;
   text-decoration: none;
-  transition: all 0.3s ease;
+  justify-content: center;
+  
 }
-
 .orderText {
   display: flex;
   flex-direction: column;
+  justify-items: center;
   align-items: center;
-  margin-top:0px;
+  text-align: center;
+
+}
+.orderText p {
+  align-self: center;
+
+  
+}
+a:visited {
+  text-decoration: none;
 }
 
 .order:hover {
@@ -173,118 +157,255 @@ h2.cost {
   color: white;
 }
 
-a:visited {
-  color: inherit;
-}
-
-/* Адаптивность */
-@media (max-width: 1200px) {
-  .mainContainer h1 {
-    font-size: 45px;
+@media (max-width: 1280px) {
+  main {
+    max-width: 90%;
   }
-  
+
+  .mainContainer {
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
   .pricingGrid {
-    gap: 20px;
+    max-width: 1350px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 11px;
+    margin-top: 57px;
   }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1023px) {
+  .mainContainer {
+    display: flex;
+    flex-direction: column;
+    justify-items: baseline;
+    align-items: center;
+    margin: 5%;
+  }
   .mainContainer h1 {
-    font-size: 40px;
-    margin-bottom: 20px;
+    margin: 5%;
+    font-size: 2.5rem;
   }
-  
   .mainContainer h3 {
-    margin-top: 20px;
+    margin-top: 0px;
   }
-  
+  .pricingGrid {
+    max-width: 1350px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 11px;
+    margin-top: 57px;
+  }
+
   .pricingCard {
-    max-width: 350px;
-    min-height: 450px;
-    padding: 20px;
+    width: 100%;
+    height: 503px;
+    background-color: #fff;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
   }
-  
+
+  .cardContent {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: auto auto;
+    min-height: 424px;
+  }
+  .heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    margin-bottom: 30px;
+  }
+
   .heading img {
-    width: 35px;
-    height: auto;
+    width: 40px;
+    height: 51px;
+    margin-right: 10px;
+  }
+  #icon1 {
+    margin-right: 15px;
+  }
+  .heading h2 {
+    margin: 0;
+    font-size: 24px;
+    color: #000;
+    padding-bottom: 1px;
+  }
+
+  .cardContent ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  .cardContent ul li {
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .cardContent ul li span,
+  .cardContent ul li img {
+    margin: 8.5px 0;
+    font-size: 16px;
+    color: #000;
+  }
+  .cardContent ul li img {
+    width: 21px;
+    height: 21px;
+  }
+  h2.cost {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 41px 0 18px 0;
+    text-align: center;
+  }
+
+  .order {
+    background-color: white;
+    color: #3980ff;
+    border: 1px solid #3980ff;
+    border-radius: 10px;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    height: 73px;
+    width: 278px;
+    margin-bottom: 0;
+    box-sizing: content-box;
+    align-self: center;
+  }
+
+  .order:hover {
+    background-color: #3980ff;
+    color: white;
   }
 }
 
 @media (max-width: 768px) {
-  .container {
-    padding: 30px 15px;
-    border-radius: 20px;
+  * {
+    box-sizing: border-box;
+    font-size: 16px;
   }
-  
-  .mainContainer h1 {
-    font-size: 36px;
-    max-width: 100%;
-  }
-  
-  .pricingGrid {
-    margin-top: 40px;
-    gap: 15px;
-  }
-  
-  .pricingCard {
-    max-width: 100%;
-    min-height: auto;
-  }
-  
-  .cardContent ul li {
-    padding: 6px 0;
-  }
-  
-  .order {
-    height: 60px;
-    max-width: 250px;
-  }
-}
 
-@media (max-width: 576px) {
+  .title h1 {
+    font-size: 36px;
+  }
+
   .mainContainer h1 {
-    font-size: 28px;
+    margin: 5%;
+    font-size: 1.8rem;
   }
-  
   .mainContainer h3 {
-    font-size: 14px;
-    margin-top: 15px;
+    margin: 5%;
+    text-align: left;
   }
-  
-  .heading h2 {
-    font-size: 20px;
+
+  .pricingGrid {
+    margin: 5%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
   }
-  
-  .cardContent ul li span {
-    font-size: 14px;
+
+  .pricingCard {
+    height: 80%;
+    font-size: 1.5rem;
+    margin-bottom: 5%;
   }
-  
-  h2.cost {
-    font-size: 20px;
-    margin: 15px 0;
+  .heading {
+    margin-top: 5%;
   }
-  
-  .order {
-    height: 50px;
-    font-size: 14px;
-  }
-  
   .heading img {
     width: 30px;
+    height: auto;
+  }
+
+  .cardContent {
+    width: 90%;
+  }
+  .cardContent ul {
+    width: 100%;
+  }
+
+  .cardContent ul li {
+    font-size: 1rem;
+  }
+  h2.cost {
+    margin-top: 5%;
+  }
+  button.order {
+    width: 80%;
+    margin: 5%;
+  }
+  .order {
+    text-decoration: none;
+    color: inherit;
   }
 }
+@media (max-width: 480px) {
+  body {
+    font-size: 16px;
+  }
 
-@media (max-width: 400px) {
   .mainContainer h1 {
-    font-size: 24px;
+    margin: 10%;
+    font-size: 1.8rem;
   }
-  
-  .container {
-    padding: 20px 10px;
-    border-radius: 15px;
+  .mainContainer h3 {
+    margin: 5%;
   }
-  
+
+  .pricingGrid {
+    margin: 5%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
   .pricingCard {
-    padding: 15px;
+    height: 80%;
+    font-size: 1.5rem;
+    margin-bottom: 5%;
+  }
+  .heading {
+    margin-top: 5%;
+  }
+  .heading img {
+    width: 30px;
+    height: auto;
+  }
+
+  .cardContent {
+    width: 90%;
+  }
+  .cardContent ul {
+    width: 100%;
+  }
+
+  .cardContent ul li {
+    font-size: 1rem;
+  }
+  h2.cost {
+    margin-top: 10%;
+  }
+  button.order {
+    width: 80%;
+    margin: 5%;
   }
 }
