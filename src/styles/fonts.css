@@ -1,0 +1,142 @@
+/* src/styles/fonts.css */
+
+/* ============================================= */
+/* Variable Fonts (Основные начертания) */
+/* ============================================= */
+@font-face {
+    font-family: 'Open Sans';
+    src: url('../assets/fonts/Open_Sans/OpenSans-VariableFont_wdth,wght.ttf') format('truetype-variations');
+    font-weight: 300 800;
+    font-stretch: 75% 125%;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'Open Sans';
+    src: url('../assets/fonts/Open_Sans/OpenSans-Italic-VariableFont_wdth,wght.ttf') format('truetype-variations');
+    font-weight: 300 800;
+    font-stretch: 75% 125%;
+    font-style: italic;
+    font-display: swap;
+  }
+  
+  /* ============================================= */
+  /* Static Fonts (Для старых браузеров и особых случаев) */
+  /* ============================================= */
+  
+  /* Regular */
+  @font-face {
+    font-family: 'Open Sans Static';
+    src: url('../assets/fonts/Open_Sans/static/OpenSans-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'Open Sans Static';
+    src: url('../assets/fonts/Open_Sans/static/OpenSans-Italic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+  }
+  
+  /* Bold */
+  @font-face {
+    font-family: 'Open Sans Static';
+    src: url('../assets/fonts/Open_Sans/static/OpenSans-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'Open Sans Static';
+    src: url('../assets/fonts/Open_Sans/static/OpenSans-BoldItalic.ttf') format('truetype');
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+  }
+  
+  /* ============================================= */
+  /* Condensed (Static) */
+  /* ============================================= */
+  @font-face {
+    font-family: 'Open Sans Condensed';
+    src: url('../assets/fonts/Open_Sans/static/OpenSans_Condensed-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'Open Sans Condensed';
+    src: url('../assets/fonts/Open_Sans/static/OpenSans_Condensed-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  /* ============================================= */
+  /* SemiCondensed (Static) */
+  /* ============================================= */
+  @font-face {
+    font-family: 'Open Sans SemiCondensed';
+    src: url('../assets/fonts/Open_Sans/static/OpenSans_SemiCondensed-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'Open Sans SemiCondensed';
+    src: url('../assets/fonts/Open_Sans/static/OpenSans_SemiCondensed-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  /* ============================================= */
+  /* CSS Variables и базовые стили */
+  /* ============================================= */
+  :root {
+    --font-main: 'Open Sans', 'Open Sans Static', sans-serif;
+    --font-condensed: 'Open Sans Condensed', 'Arial Narrow', sans-serif;
+    --font-semi-condensed: 'Open Sans SemiCondensed', 'Arial Narrow', sans-serif;
+  }
+  
+  body {
+    font-family: var(--font-main);
+    font-weight: 400;
+  }
+  
+  /* Классы для удобного использования */
+  .font-condensed {
+    font-family: var(--font-condensed);
+  }
+  
+  .font-semi-condensed {
+    font-family: var(--font-semi-condensed);
+  }
+  
+  .bold {
+    font-weight: 700;
+  }
+  
+  .italic {
+    font-style: italic;
+  }
+  
+  /* Пример использования переменного шрифта */
+  .variable-font {
+    font-variation-settings: 
+      'wght' 400,
+      'wdth' 100;
+  }
+  
+  .variable-font-bold {
+    font-variation-settings: 
+      'wght' 700,
+      'wdth' 100;
+  }

@@ -1,13 +1,42 @@
+:root {
+  --font-size-base: 16px;
+  --font-family-main: "Open Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  
+  /* Относительные размеры */
+  --font-size-h1: 3.4375rem; /* 55px / 16px */
+  --font-size-h2: 2.1875rem; /* 35px / 16px */
+  --font-size-text: 1.25rem;  /* 20px / 16px */
+  --font-size-block: 1.375rem; /* 22px / 16px */
+  --border-width: 0.4375rem; /* 7px / 16px */
+}
+
+/* Подключение шрифтов */
+@font-face {
+  font-family: 'Open Sans';
+  src: url('../assets/fonts/Open_Sans/OpenSans-VariableFont_wdth,wght.ttf') format('truetype');
+  font-weight: 300 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('../assets/fonts/Open_Sans/OpenSans-Italic-VariableFont_wdth,wght.ttf') format('truetype');
+  font-weight: 300 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Основные глобальные стили */
 * {
   margin: 0;
   padding: 0;
-  font-family: "Open Sans", sans-serif;
-  font-size: 16px;
+  box-sizing: border-box;
+  font-family: var(--font-family-main);
 }
 
-main {
-  margin: 0 auto;
-  text-align: left;
+html {
+  font-size: var(--font-size-base);
 }
 
 body {
@@ -25,37 +54,39 @@ body {
   padding: 0;
   margin: 0 auto;
 }
+
 main {
   max-width: 1288px;
   width: 100%;
-  margin-top: 0;
+  margin: 0 auto;
   text-align: left;
 }
 
 .title {
-  margin-top: 60px;
+  margin-top: 3.75rem; /* 60px / 16px */
   padding-left: 0;
   text-align: left;
 }
 
 .title h1 {
-  font-size: 55px;
+  font-size: var(--font-size-h1);
   margin: 0;
 }
 
 main p {
-  margin-top: 30px;
-  font-size: 20px;
+  margin-top: 1.875rem; /* 30px / 16px */
+  font-size: var(--font-size-text);
   padding-left: 0;
   line-height: 150%;
   text-align: left;
 }
+
 .mainContainer {
-  margin-top: 44px;
+  margin-top: 2.75rem; /* 44px / 16px */
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 1.25rem; /* 20px / 16px */
   text-align: left;
 }
 
@@ -66,46 +97,85 @@ main p {
   box-sizing: border-box;
   background-color: #3980ff;
   max-width: 407px;
-  min-height: 529px;
+  min-height: auto; 
+  height: auto;
   width: 100%;
-  border-radius: 20px;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  border-radius: 1.25rem;
+  box-shadow: 0 0.25rem 0.25rem 0 rgba(0, 0, 0, 0.25);
+  overflow: hidden;
 }
 
 .blockInfo {
   color: white;
-  font-size: 22px;
-  padding: 33px;
+  font-size: var(--font-size-block);
+  padding: 2.0625rem;
   height: auto;
-}
-
-.blockInfo h2 {
-  font-size: 35px;
-  font-weight: bold;
-  text-align: center;
-  margin-top: 0;
+  width: 100%; /* Добавлено */
+  display: flex; /* Добавлено */
+  flex-direction: column; /* Добавлено */
 }
 
 .blockInfo p {
   letter-spacing: 0;
-  margin-top: 50px;
+  margin-top: 3.125rem;
+  flex-grow: 1; /* Текст будет занимать доступное пространство */
+  overflow-wrap: break-word; /* Перенос длинных слов */
+  hyphens: auto; /* Автоматическая расстановка переносов (если поддерживается) */
 }
 
+.blockInfo h2 {
+  font-size: var(--font-size-h2);
+  font-weight: bold;
+  text-align: center;
+  margin-top: 0;
+  
+  flex-grow: 1; /* Текст будет занимать доступное пространство */
+  overflow-wrap: break-word; /* Перенос длинных слов */
+  hyphens: auto; /* Автоматическая расстановка переносов (если поддерживается) */
+}
+/*
+.block {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  background-color: #3980ff;
+  max-width: 407px;
+  min-height: 529px;
+  width: 100%;
+  border-radius: 1.25rem; 
+  box-shadow: 0 0.25rem 0.25rem 0 rgba(0, 0, 0, 0.25);
+}
+
+.blockInfo {
+  color: white;
+  font-size: var(--font-size-block);
+  padding: 2.0625rem; 
+  height: auto;
+}
+
+
+
+.blockInfo p {
+  letter-spacing: 0;
+  margin-top: 3.125rem; 
+}*/
+
 .photos {
-  margin-top: 44px;
+  margin-top: 2.75rem; /* 44px / 16px */
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
+  gap: 1.25rem; /* 20px / 16px */
 }
 
 .photos img {
   width: 100%;
   height: auto;
-  border: 7px solid white;
-  border-radius: 20px;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  border: var(--border-width) solid white;
+  border-radius: 1.25rem; /* 20px / 16px */
+  box-shadow: 0 0.25rem 0.25rem 0 rgba(0, 0, 0, 0.25);
   cursor: pointer;
 }
 
@@ -116,11 +186,12 @@ main p {
 }
 
 figcaption {
-  margin-top: 10px;
-  font-size: 20px;
+  margin-top: 0.625rem; /* 10px / 16px */
+  font-size: var(--font-size-text);
   padding-left: 0;
   line-height: 150%;
 }
+
 @media (max-width: 1280px) {
   main {
     max-width: 90%;
@@ -141,16 +212,8 @@ figcaption {
   }
 
   .block {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    box-sizing: border-box;
-    background-color: #3980ff;
     max-width: 407px;
     min-height: 529px;
-    width: 100%;
-    border-radius: 20px;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   }
 
   .photos figure {
@@ -159,14 +222,11 @@ figcaption {
 }
 
 @media (max-width: 768px) {
-  * {
-    box-sizing: border-box;
-    font-size: 16px;
-  }
-
-  main p,
-  figcaption {
-    font-size: 16px;
+  :root {
+    --font-size-h1: 2.5rem;
+    --font-size-h2: 1.75rem;
+    --font-size-text: 1rem;
+    --font-size-block: 1.125rem;
   }
 
   .mainContainer {
@@ -206,22 +266,20 @@ figcaption {
   }
 
   .photos {
-    margin-top: 30px;
+    margin-top: 1.875rem; /* 30px / 16px */
   }
 }
 
 @media (max-width: 480px) {
-  body {
-    font-size: 14px;
-  }
-
-  main p,
-  figcaption {
-    font-size: 14px;
+  :root {
+    --font-size-h1: 1.75rem;
+    --font-size-h2: 1.25rem;
+    --font-size-text: 0.875rem;
+    --font-size-block: 0.875rem;
   }
 
   .title h1 {
-    font-size: 28px;
+    font-size: var(--font-size-h1);
   }
 
   .block {
@@ -229,9 +287,10 @@ figcaption {
   }
 
   .blockInfo {
-    font-size: 14px;
+    font-size: var(--font-size-block);
   }
+  
   .blockInfo h2 {
-    font-size: 1.7rem;
+    font-size: var(--font-size-h2);
   }
 }

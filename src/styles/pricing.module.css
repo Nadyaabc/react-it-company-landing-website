@@ -1,5 +1,8 @@
+@import url('fonts.css');
+
+
 * {
-  font-family: "Open Sans", sans-serif;
+  font-family: var(--font-main); /* Основной шрифт для всех элементов */
   font-size: 16px;
   margin: 0;
   padding: 0;
@@ -26,7 +29,6 @@ main {
 .mainContainer h1 {
   font-size: 55px;
   max-height: 114px;
-  max-width: 702px;
   font-weight: bold;
   margin: 79px auto auto auto;
   text-align: center;

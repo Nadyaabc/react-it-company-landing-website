@@ -1,8 +1,50 @@
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('../assets/fonts/Open_Sans/OpenSans-VariableFont_wdth,wght.ttf') format('truetype');
+  font-weight: 300 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('../assets/fonts/Open_Sans/OpenSans-Italic-VariableFont_wdth,wght.ttf') format('truetype');
+  font-weight: 300 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+:root {
+  /* Base font size for rem units */
+  --font-size-base: 16px;
+  --font-family-main: 'Open Sans', sans-serif;
+  
+  /* Relative sizes */
+  --font-size-h1: clamp(2rem, 5vw, 3.4375rem); /* Responsive between 32px and 55px */
+  --font-size-h2: clamp(1rem, 1.25vw, 1.25rem); /* Responsive between 16px and 20px */
+  --font-size-text: 1rem;    /* 16px */
+  --font-size-small: 0.875rem; /* 14px */
+  
+  /* Spacing */
+  --section-gap: clamp(20px, 4vw, 86px);
+  --element-gap: clamp(15px, 2vw, 26px);
+  
+  /* Sizes */
+  --box-width: clamp(250px, 100%, 315px);
+  --box-height: clamp(80px, 8vw, 106px);
+  --input-height: clamp(50px, 6vw, 64px);
+  --button-width: clamp(280px, 90%, 320px);
+}
+
 * {
-  font-family: "Open Sans", sans-serif;
-  font-size: 16px;
-  margin: 0 auto;
+  box-sizing: border-box;
+  margin: 0 ;
   padding: 0;
+}
+body {
+  font-family: var(--font-family-main);
+  background-color: #fef4ff;
 }
 .error {
   color: red;
@@ -13,6 +55,8 @@
   border: 2px solid blue;
 }
 .container {
+  font-family: var(--font-family-main);
+  font-size: var(--font-size-base);
   background-color: #fef4ff;
   display: flex;
   flex-direction: column;
@@ -21,14 +65,17 @@
   border-radius: 27px;
   height: auto;
   padding: 0;
+  margin :  auto;
 }
 .mainContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-width: 100%; /* Убедитесь, что максимальная ширина 100% */
+  padding: 0 20px; /* Добавьте отступы с боков */
 }
 .mainContainer h1 {
-  font-size: 55px;
+  font-size: var(--font-size-h1);
   padding: 0;
   margin: 0;
   line-height: normal;
@@ -44,7 +91,7 @@
 }
 .budget h2,
 .contactData h2 {
-  font-size: 20px;
+  font-size: var(--font-size-h2);
   font-weight: 300;
   text-align: left;
   margin: 0;
@@ -54,21 +101,22 @@
   display: flex;
   flex-direction: column;
   gap: 26px;
-  margin: 0;
+  gap: var(--element-gap);
+  width: 100%; /* Убедитесь, что бюджет занимает 100% ширины */
+  max-width: 100%; /* Ограничьте максимальную ширину */
 }
-
 .budgetGrid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-column-gap: 15px;
-  grid-row-gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: var(--element-gap);
+  width: 100%; /* Ограничьте ширину сетки */
 }
 
 .box {
   border: 1px solid #3980ff;
   border-radius: 93px;
-  width: 315px;
-  height: 106px;
+  width: 100%; /* Установите ширину в 100% для адаптивности */
+  height: var(--box-height);
   text-align: center;
   background-color: #ffffff;
   transition: background-color 0.3s;
@@ -86,6 +134,7 @@
 .box.selected {
   background-color: #3980ff;
   color: white;
+  font-size: var(--font-size-text);
 }
 
 /*контакты*/
@@ -94,14 +143,16 @@
   flex-direction: column;
   gap: 35px;
   margin: 0;
+  width: 100%;
 }
 
 .formGroup {
   margin-bottom: 9.5px;
-  width: 471px;
+  width: 100%;
 }
 input[type="text"] {
   height: 64px;
+  width: 100%;
 }
 textarea {
   height: 202px;
@@ -119,6 +170,9 @@ textarea {
   color: #acacac;
   box-sizing: border-box;
   resize: none;
+  
+  font-size: var(--font-size-text);
+  font-family: var(--font-family-main);
 }
 
 button {
@@ -128,7 +182,8 @@ button {
   border: none;
   border-radius: 10px;
   cursor: pointer;
-  font-size: 17px;
+  font-family: var(--font-family-main);
+  font-size: var(--font-size-text);
   width: 320px;
   height: 73px;
 }
@@ -145,7 +200,8 @@ button input:hover {
   background-color: #0056b3;
 }
 main p {
-  font-size: 16px;
+
+  font-size: var(--font-size-text);
 }
 
 @media (max-width: 1280px) {
@@ -185,11 +241,16 @@ main p {
 }
 
 @media (max-width: 768px) {
+  :root {
+    --font-size-h1: 2.5rem;
+    --font-size-h2: 1.125rem;
+  }
+  
   * {
     box-sizing: border-box;
     font-size: 16px;
   }
-
+ 
   .mainContainer h1 {
     font-size: 2.5em;
     margin: 5%;
@@ -205,9 +266,50 @@ main p {
   .box {
     width: 100%;
   }
-}
+  .contactData {
+    flex-direction: row; /* На более широких экранах элементы располагаются в строку */
+    flex-wrap: wrap; /* Позволяет переносить элементы на следующую строку, если не помещаются */
+    justify-content: space-between; /* Распределяет элементы равномерно */
+  }
 
+  .formGroup {
+    flex: 1; /* Элементы будут занимать равную ширину */
+    min-width: 250px; /* Установите минимальную ширину для форм */
+
+  }
+
+}
+@media (max-width: 530px) {
+  .mainContainer {
+    padding: 0 20px; /* Добавьте отступы с боков */
+    max-width: 100%; /* Предотвращает выход за границы */
+  }
+
+  .budgetGrid {
+    display: flex;
+    flex-direction: column; /* Элементы располагаются в одну колонку */
+    width: 100%; /* Ограничьте ширину сетки */
+  }
+
+  .formGroup {
+    width: 100%; /* Ширина формы 100% */
+  }
+
+  input[type="text"],
+  textarea {
+    width: 100%; /* Поля ввода занимают 100% ширины */
+   /* padding: 10px; /* Уменьшите отступы внутри полей для лучшей адаптивности */
+  }
+
+  button {
+    width: 100%; /* Кнопка также занимает 100% ширины */
+  }
+}
 @media (max-width: 480px) {
+  :root {
+    --font-size-h1: 2rem;
+    --font-size-h2: 1rem;
+  }
   body {
     font-size: 16px;
   }
