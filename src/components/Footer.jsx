@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom'; // Импорт Link и useLocation
-import styles from '../styles/index.module.css'; // Импорт стилей
+import styles from '../styles/footer.module.css'; // Импорт стилей
 import logo from '../assets/images/svg/logo.svg';
 import telegramIcon from '../assets/images/svg/telegram-icon.svg';
 import viberIcon from '../assets/images/svg/viber-icon.svg';
@@ -14,6 +14,7 @@ const Footer = () => {
         <ul className={styles.navList}>
           <li>
             <Link  className={location.pathname === '/' ? styles.currentPage : ''} to="/">Главная</Link>
+            
           </li>
           <li>
             <Link className={location.pathname === '/about-us' ? styles.currentPage : ''} to="/about-us">О нас</Link>

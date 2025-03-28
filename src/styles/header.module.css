@@ -1,0 +1,182 @@
+/* header.css */
+header {
+  width: 100%;
+  max-width: 1350px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+  margin-bottom: 0.875em; 
+  font-size: var(--font-size-base, 16px); /* Добавляем использование CSS переменной */
+  padding: 1em 0; /* Добавлено для вертикального отступа */
+  box-sizing: border-box; /* Чтобы padding не увеличивал общую ширину */
+}
+
+header .logo img {
+  margin-right: 20px;
+  margin-top: 19px;
+  width: 285px;
+  height: 72px;
+}
+
+header nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  max-width: 56.25em; /* 900px / 16px = 56.25em */
+  gap: 0.9375em; /* 15px / 16px = 0.9375em */
+  padding: 0;
+  margin-top: 1.5625em; /* 25px / 16px = 1.5625em */
+  text-align: center;
+ 
+}
+
+header nav ul li a {
+  margin-right: 1.5625em; /* 25px / 16px = 1.5625em */
+  color: black;
+  font-size: 1em;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+header nav ul li a:last-child {
+  margin-right: 0;
+}
+
+.currentPage {
+  font-weight: bold;
+  color: #3980ff;
+}
+
+header .contacts p#phone strong {
+  font-size: 1.25em; /* Изменено с 20px на относительный em (20/16=1.25) */
+  color: #4386ff;
+  line-height: 150%;
+}
+
+.phone {
+  font-size: 1.25em; /* Изменено с 20px на относительный em */
+  color: #4386ff;
+  line-height: 150%;
+}
+
+header .contacts {
+  margin-right: 1.5em;
+  margin-left: 1.5em;
+  margin-top: 1.125em; /* 18px / 16px = 1.125em */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+header .contacts p {
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+  margin: 0px;
+  align-items: start;
+  font-size: 1em; /* Добавлено для консистентности */
+}
+
+header .socialMedia {
+  display: flex;
+  gap: 0.6875em; /* 11px / 16px = 0.6875em */
+  margin-top: 1.125em; /* 18px / 16px = 1.125em */
+}
+
+.socialMedia img {
+  width: 48px;
+  height: 48px;
+}
+
+@media (max-width: 1280px) {
+  header {
+    max-width: 90%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  header nav ul {
+    gap: 1.25em;
+  }
+}
+
+@media (max-width: 1023px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  header nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.9375em; /* 15px / 16px = 0.9375em */
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 0.9375em; /* 15px / 16px = 0.9375em */
+    justify-content: center;
+    align-items: center;
+    height: auto;
+  }
+
+  header .contacts {
+    margin: 10px auto;
+  }
+
+  header .logo img {
+    width: 12.5em;
+    height: auto;
+  }
+
+  header nav ul {
+    padding: 5%;
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.625em;
+  }
+
+  header nav ul li a {
+    font-size: 0.875em; /* Изменено с 14px на относительный em (14/16=0.875) */
+  }
+
+  header nav ul li:last-child {
+    text-align: center;
+  }
+
+  header .contacts {
+    margin: auto auto;
+  }
+
+  header .socialMedia {
+    margin-top: 0;
+  }
+
+  .socialMedia img {
+    width: 2.25em;
+    height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 10px;
+  }
+
+  header .contacts p#phone strong {
+    font-size: 1.125em; /* Изменено с 18px на относительный em (18/16=1.125) */
+  }
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom'; // Импорт Link и useLocation
-import styles from '../styles/index.module.css'; // Импорт стилей
+import styles from '../styles/header.module.css'; // Импорт стилей
 import logo from '../assets/images/svg/logo.svg';
 import telegramIcon from '../assets/images/svg/telegram-icon.svg';
 import viberIcon from '../assets/images/svg/viber-icon.svg';

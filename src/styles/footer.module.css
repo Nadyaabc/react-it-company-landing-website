@@ -1,0 +1,150 @@
+/* footer.css */
+footer {
+  width: 100%;
+  max-width: 1400px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 6,9375em;
+  margin: 2.75em 16.525em 2.8125em 22.0625em;
+  font-size: var(--font-size-base, 16px); /* Добавляем использование CSS переменной */
+}
+
+footer .logo img {
+  margin-right: 4.375em;
+  margin-left: 12.5em;
+  width: 17.8125em;
+  height: 4.5em;
+}
+
+footer nav {
+  margin: 0;
+  max-width: 172px;
+}
+
+footer nav ul {
+  list-style: none;
+  flex-direction: column;
+  padding: 0px;
+}
+
+footer nav ul li a {
+  color: black;
+  font-size: 1em; /* Изменено с фиксированного 16px на относительный em */
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.currentPage {
+  font-weight: bold;
+  color: #3980ff;
+}
+
+footer .contacts {
+  margin-top: 12px;
+  margin-right: 20px;
+}
+
+footer .contacts p {
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 7px;
+  align-items: start;
+  font-size: 1em; /* Используем относительные единицы */
+}
+
+footer .contacts p strong {
+  font-size: 1em; /* Для жирного текста тоже используем em */
+}
+
+footer .socialMedia {
+  display: flex;
+  gap: 0.6875em; /* 11px / 16px = 0.6875em */ flex-direction: column;
+}
+
+
+@media (max-width: 1280px) {
+  footer {
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 1023px) {
+  footer {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    margin: 0;
+  }
+
+  footer .logo img {
+    margin: 0;
+    width: auto;
+    height: 52px;
+  }
+
+  footer nav {
+    margin: 10px 0;
+  }
+
+  footer nav ul {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+  }
+
+  footer .contacts {
+    margin-top: 10px;
+  }
+
+  footer .socialMedia {
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 768px) {
+  footer {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    margin: 0;
+  }
+
+  footer .logo img {
+    margin: 0;
+    width: auto;
+    height: 52px;
+  }
+
+  footer nav {
+    margin: 10px 0;
+  }
+
+  footer nav ul {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+  }
+
+  footer .contacts {
+    margin-top: 10px;
+  }
+
+  footer .socialMedia {
+    flex-direction: row;
+  }
+}

@@ -1,97 +1,56 @@
+/* Карусель услуг */
 .serviceGrid {
   position: relative;
   width: 100%;
   max-width: 1410px;
-  margin: 0 auto;
-  margin-top: 40px;
+  margin: 40px auto 0;
+  padding: 0 60px;
 }
 
 .carouselOuter {
+  width: 100%;
+  overflow: hidden;
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 }
 
 .carouselContainer {
   width: 100%;
   overflow: hidden;
-}
-.service-card {
-  max-width: 410px;
-  width: 100%;
-  background-color: #fff;
-  border-radius: 20px;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  box-sizing: border-box;
-  padding-top: 36px;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  height: 100%;
-  min-width: 410px;
-}
-.serviceCard {
-  flex: 1 1 auto;
-  min-width: 200px;
-  max-width: 100%;
-  height: auto;
-  background: #f9f9f9;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding-top: 36px;
-}
-
-/* Индикаторы */
-.carouselIndicators {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-  gap: 10px;
-}
-.cardContent {
-  margin: 0 auto;
-  margin-bottom: 66px;
-  word-wrap: break-word;
-  padding: 0;
-}
-.indicator {
-  width: 30px;
-  height: 3px;
-  background: gray;
-  cursor: pointer;
-  transition: width 0.3s ease, background 0.3s ease;
-  margin:0 0;
-}
-
-.indicatorActive {
-  width: 50px;
-  background: #007bff;
-}
-
-.carouselOuter {
-  position: relative;
-  width: 100%;
+  padding: 10px 0;
 }
 
 .carouselWrapper {
   width: 100%;
+  overflow: visible;
+  position: relative;
 }
 
-.carouselOuter {
-  position: relative;
+.carousel {
   display: flex;
+  transition: transform 0.5s ease-in-out;
+  gap: 30px;
+  will-change: transform;
+  width: max-content;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+/* Стили карточек */
+.serviceCard {
+  flex: 0 0 410px;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 36px 20px;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
+  transition: all 0.3s ease;
 }
 
-.carouselContainer {
-  width: 100%;
-  overflow: hidden;
-}
-
+/* Кнопки навигации */
 .carouselButton {
   position: absolute;
   top: 50%;
@@ -99,7 +58,7 @@
   z-index: 10;
   width: 50px;
   height: 50px;
-  background: #007bff;
+  background: #3980ff;
   color: white;
   border: none;
   border-radius: 50%;
@@ -107,80 +66,129 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
 .prev {
-  left: -70px;
+  left: 0;
 }
 
 .next {
-  right: -70px;
+  right: 0;
 }
 
-.carouselWrapper {
-  overflow: hidden;
-  height: 340px;
-}
-
-.carousel {
+/* Индикаторы */
+.carouselIndicators {
   display: flex;
-  transition: transform 0.5s ease-in-out;
-  gap: 30px;
-  width: max-content;
+  justify-content: center;
+  margin-top: 30px;
+  gap: 8px;
 }
 
-.carouselButton {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 100;
-  width: 50px;
-  height: 50px;
-  background: #007bff;
-  color: white;
-  border: none;
-  border-radius: 50%;
+.indicator {
+  width: 30px;
+  height: 4px;
+  background: rgba(0, 0, 0, 0.2);
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  transition: all 0.3s ease;
+  border-radius: 2px;
 }
 
-.prev {
-  left: -80px;
+.indicatorActive {
+  width: 40px;
+  background: #3980ff;
 }
 
-.next {
-  right: -80px;
-}
-.carouselButton:disabled {
-  background: #6c757d;
-  cursor: not-allowed;
-}
-
-.carouselContainer {
-  width: 100%;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-}
-
-.carouselWrapper {
-  display: flex;
-  flex-wrap: nowrap;
-  width: 100%;
-}
-
-.carousel {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-  gap: 30px;
-}
-
-@media (max-width: 768px) {
-  .carouselButton {
-    display: none;
+/* Адаптивность */
+@media (max-width: 1440px) {
+  .serviceCard {
+    flex: 0 0 calc(33.333vw - 60px);
+    min-width: 300px;
   }
 }
 
+@media (max-width: 1200px) {
+  .serviceGrid {
+    padding: 0 50px;
+  }
+  
+  .serviceCard {
+    flex: 0 0 calc(50vw - 60px);
+    min-width: 280px;
+    padding: 32px 18px;
+  }
+}
 
+@media (max-width: 992px) {
+  .serviceCard {
+    flex: 0 0 calc(50vw - 50px);
+    min-width: 260px;
+  }
+}
+
+@media (max-width: 768px) {
+  .serviceGrid {
+    padding: 0 40px;
+  }
+  
+  .carouselButton {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .carousel {
+    gap: 20px;
+  }
+  
+  .serviceCard {
+    flex: 0 0 calc(100vw - 100px);
+    min-width: 240px;
+    padding: 28px 16px;
+  }
+  
+  .carouselIndicators {
+    margin-top: 25px;
+  }
+}
+
+@media (max-width: 576px) {
+  .serviceGrid {
+    padding: 0 30px;
+  }
+  
+  .serviceCard {
+    flex: 0 0 calc(100vw - 80px);
+    padding: 24px 14px;
+  }
+  
+  .carouselButton {
+    width: 36px;
+    height: 36px;
+    display: none; /* Скрываем кнопки на маленьких экранах */
+  }
+}
+
+@media (max-width: 480px) {
+  .serviceGrid {
+    padding: 0 20px;
+  }
+  
+  .serviceCard {
+    flex: 0 0 calc(100vw - 60px);
+    padding: 20px 12px;
+  }
+  
+  .carouselIndicators {
+    margin-top: 20px;
+  }
+  
+  .indicator {
+    width: 20px;
+    height: 3px;
+  }
+  
+  .indicatorActive {
+    width: 30px;
+  }
+}

@@ -1,67 +1,82 @@
+/* Подключаем файл со шрифтами */
+@import url('fonts.css');
+:root {
+  /* Замените calc() на относительные единицы */
+  --font-size-h1: clamp(1.5rem, 5vw, 3.4375rem);
+  --font-size-h3: clamp(1rem, 1.2vw, 1.125rem);
+  --font-size-button: clamp(0.9375rem, 1.1vw, 1.0625rem);
+}
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-main);
+  font-size: var(--base-font-size);
+  line-height: 1.5;
 }
 
 .container {
   background-color: #fef4ff;
   border-radius: 27px;
   padding: 0;
-  max-width: 1793px;
+  max-width: min(95%, 1793px);
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 0 auto;
+
 }
 
 .mainDev {
   background-color: #3980ff;
   border-radius: 20px;
-  width: 100%;
+  width: min(100%, 1733px);
   color: white;
-  max-width: 1733px;
   text-align: center;
   display: flex;
   flex-direction: column;
-  overflow: auto;
+  padding: 20px;
+  margin: 20px auto;
 }
 
 .mainDev h1 {
-  margin-top: 61px;
-  margin-bottom: 88px;
-  font-size: 55px;
+  margin: clamp(30px, 6vw, 61px) 0 clamp(30px, 5vw, 88px);
+  font-size: var(--font-size-h1);
   font-weight: 300;
+  font-variation-settings: 'wght' 300;
 }
 
 .mainDev h3 {
-  margin: 0;
-  margin-left: 7px;
+  margin: 0 0 0 7px;
   padding: 0;
-  font-size: 18px;
+  font-size: var(--font-size-h3);
   font-weight: 300;
+  font-variation-settings: 'wght' 300;
+  font-family: var(--font-main);
 }
 
 .grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 30px;
-  margin-top: 20px;
+  margin: 20px auto;
   max-width: 1290px;
-  margin: 0 auto;
+  width: 100%;
 }
 
 .item {
-  max-height: 309px;
-  max-width: 300px;
-  flex: 1 1 300px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
   margin-bottom: 40px;
 }
 
 .item img {
-  width: 300px;
-  height: 129px;
-  margin-bottom: 10px;
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  aspect-ratio: 300/129;
+  margin: 0 auto 10px;
 }
 
 .imageTitle {
@@ -70,11 +85,11 @@
   flex-direction: column;
   justify-content: flex-start;
   margin-top: 10px;
+  text-align: left;
 }
 
 .pointTitle {
   display: flex;
-  flex-direction: row;
   align-items: center;
   justify-content: flex-start;
 }
@@ -89,15 +104,14 @@
   justify-content: center;
   align-items: center;
   margin-right: 10px;
+  flex-shrink: 0;
 }
 
 .imageDesc p {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
   margin-top: 21px;
-  font-size: 15px;
+  font-size: var(--font-size-text);
   text-align: left;
+  overflow-wrap: break-word;
 }
 
 .button {
@@ -106,102 +120,71 @@
   align-items: center;
   margin: 0 auto;
   width: 100%;
+  max-width: 300px;
   height: 129px;
   background-color: #eb5757;
   color: white;
   border: none;
   border-radius: 15px;
-  font-size: 17px;
+  font-size: var(--font-size-button);
   cursor: pointer;
   transition: background-color 0.3s;
   text-decoration: none;
+  padding: 10px;
 }
 
 .button:hover {
   background-color: #f34141;
 }
 
-@media (max-width: 1280px) {
-  .mainDev {
-    max-width: 100%;
-  }
-
-  .mainContainer {
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-  }
-}
-
+/* Адаптивные стили */
 @media (max-width: 1023px) {
+  :root {
+    --base-font-size: 15px;
+  }
+  
   .mainDev h1 {
-    font-size: 50px;
     margin: 45px auto;
   }
 
   .button {
     width: 95%;
-    padding: 0;
-    margin-bottom: 20px;
+    height: 110px;
   }
 }
 
 @media (max-width: 768px) {
-  * {
-    box-sizing: border-box;
-    font-size: 16px;
+  :root {
+    --base-font-size: 14px;
   }
-
-  .mainDev {
-    height: auto;
-  }
-
+  
   .mainDev h1 {
-    font-size: 45px;
     margin: 40px auto;
-  }
-
-  .mainDev p {
-    font-size: 16px;
+    font-size: calc(var(--font-size-h1) * 0.9);
   }
 
   .grid {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .item {
-    width: 100%;
-    max-height: fit-content;
-    margin-bottom: 20px;
+    grid-template-columns: 1fr;
   }
 
   .button {
     width: 90%;
-    padding: 0;
     height: 90px;
-    margin-bottom: 20px;
   }
 }
 
 @media (max-width: 480px) {
-  body {
-    font-size: 14px;
+  :root {
+    --base-font-size: 13px;
   }
-
+  
   .mainDev h1 {
-    font-size: 40px;
     margin: 30px auto;
-  }
-
-  .mainDev p {
-    font-size: 14px;
+    font-size: calc(var(--font-size-h1) * 0.8);
   }
 
   .button {
     width: 85%;
-    padding: 0;
     height: 85px;
-    margin-bottom: 20px;
   }
 }
