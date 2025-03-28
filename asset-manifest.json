@@ -1,13 +1,23 @@
 {
   "files": {
-    "main.css": "/react-it-company-landing-website/static/css/main.89667324.css",
-    "main.js": "/react-it-company-landing-website/static/js/main.0b8ecd76.js",
+    "main.css": "/react-it-company-landing-website/static/css/main.d7fe1728.css",
+    "main.js": "/react-it-company-landing-website/static/js/main.dc4b7e88.js",
     "static/js/453.ad6eb26e.chunk.js": "/react-it-company-landing-website/static/js/453.ad6eb26e.chunk.js",
     "static/media/dev-stage-3.svg": "/react-it-company-landing-website/static/media/dev-stage-3.cd7fbe5b374a7187b3e0f70b2349602b.svg",
     "static/media/second-phone.svg": "/react-it-company-landing-website/static/media/second-phone.03015d5da32f3d0a6110b05867594844.svg",
     "static/media/dev-stage-4.svg": "/react-it-company-landing-website/static/media/dev-stage-4.d57e6ef1ad63bbf20d8dde6e6b5ebf3e.svg",
     "static/media/main-phone.svg": "/react-it-company-landing-website/static/media/main-phone.fcb35c8ea7fe6ce59b08346b532d00d0.svg",
+    "static/media/OpenSans-Italic-VariableFont_wdth,wght.ttf": "/react-it-company-landing-website/static/media/OpenSans-Italic-VariableFont_wdth,wght.582284c873c3f85ba4f8.ttf",
+    "static/media/OpenSans-VariableFont_wdth,wght.ttf": "/react-it-company-landing-website/static/media/OpenSans-VariableFont_wdth,wght.19ba637387f1d6142f55.ttf",
     "static/media/dev-stage-1.svg": "/react-it-company-landing-website/static/media/dev-stage-1.1ce1e755a10c53b6b34593a878bb605c.svg",
+    "static/media/OpenSans-Italic.ttf": "/react-it-company-landing-website/static/media/OpenSans-Italic.a9d385277b4833d366ce.ttf",
+    "static/media/OpenSans-BoldItalic.ttf": "/react-it-company-landing-website/static/media/OpenSans-BoldItalic.509f36f6029476925dfd.ttf",
+    "static/media/OpenSans_SemiCondensed-Bold.ttf": "/react-it-company-landing-website/static/media/OpenSans_SemiCondensed-Bold.7b3fd25fa49a4264418d.ttf",
+    "static/media/OpenSans-Bold.ttf": "/react-it-company-landing-website/static/media/OpenSans-Bold.c790f99966352c531503.ttf",
+    "static/media/OpenSans_SemiCondensed-Regular.ttf": "/react-it-company-landing-website/static/media/OpenSans_SemiCondensed-Regular.ee06ec41e8576becdb89.ttf",
+    "static/media/OpenSans-Regular.ttf": "/react-it-company-landing-website/static/media/OpenSans-Regular.b8cc747a58ffa52b7ff9.ttf",
+    "static/media/OpenSans_Condensed-Regular.ttf": "/react-it-company-landing-website/static/media/OpenSans_Condensed-Regular.52dfa12fd5d4293eb596.ttf",
+    "static/media/OpenSans_Condensed-Bold.ttf": "/react-it-company-landing-website/static/media/OpenSans_Condensed-Bold.59b3efcdfd4a5eb56599.ttf",
     "static/media/new_year.jpg": "/react-it-company-landing-website/static/media/new_year.4a8b62d96a5c20566ceb.jpg",
     "static/media/office.jpg": "/react-it-company-landing-website/static/media/office.078e10dc48affbbfcfae.jpg",
     "static/media/chistmas.jpg": "/react-it-company-landing-website/static/media/chistmas.a93a45e08dfedc0a673f.jpg",
@@ -28,12 +38,12 @@
     "static/media/cup.svg": "/react-it-company-landing-website/static/media/cup.1c7cf445d501a832b90412c36fda1ba8.svg",
     "static/media/telegram-icon.svg": "/react-it-company-landing-website/static/media/telegram-icon.2362de910d2e9f2943266dc3fc225f6b.svg",
     "index.html": "/react-it-company-landing-website/index.html",
-    "main.89667324.css.map": "/react-it-company-landing-website/static/css/main.89667324.css.map",
-    "main.0b8ecd76.js.map": "/react-it-company-landing-website/static/js/main.0b8ecd76.js.map",
+    "main.d7fe1728.css.map": "/react-it-company-landing-website/static/css/main.d7fe1728.css.map",
+    "main.dc4b7e88.js.map": "/react-it-company-landing-website/static/js/main.dc4b7e88.js.map",
     "453.ad6eb26e.chunk.js.map": "/react-it-company-landing-website/static/js/453.ad6eb26e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.89667324.css",
-    "static/js/main.0b8ecd76.js"
+    "static/css/main.d7fe1728.css",
+    "static/js/main.dc4b7e88.js"
   ]
 }
