@@ -1,9 +1,62 @@
+/* index-second.css */
+:root {
+  /* Базовые настройки */
+  --font-family-main: 'Open Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  
+  /* Цвета светлой темы */
+  --color-primary: #3980ff;
+  --color-secondary: #eb5757;
+  --color-light: #fef4ff;
+  --color-dark: #0c4ab3;
+  --color-text: #333;
+  --color-white: #fff;
+  --color-bg: #fff;
+  --color-card-bg: #fff;
+  --color-shadow: rgba(0, 0, 0, 0.1);
+  --color-border: rgba(0, 0, 0, 0.25);
+  --color-icon-filter: none;
+
+  /* Цвета темной темы */
+  --color-primary-dark: #5a9cff;
+  --color-secondary-dark: #ff6b6b;
+  --color-light-dark: #1a1a1a;
+  --color-dark-dark: #1a3d7a;
+  --color-text-dark: #e0e0e0;
+  --color-white-dark: #121212;
+  --color-bg-dark: #121212;
+  --color-card-bg-dark: #1e1e1e;
+  --color-shadow-dark: rgba(0, 0, 0, 0.3);
+  --color-border-dark: rgba(255, 255, 255, 0.1);
+  --color-icon-filter-dark: invert(1) brightness(0.8);
+
+  /* Размеры */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+}
+
+[data-theme="dark"] {
+  --color-primary: var(--color-primary-dark);
+  --color-secondary: var(--color-secondary-dark);
+  --color-light: var(--color-light-dark);
+  --color-dark: var(--color-dark-dark);
+  --color-text: var(--color-text-dark);
+  --color-white: var(--color-white-dark);
+  --color-bg: var(--color-bg-dark);
+  --color-card-bg: var(--color-card-bg-dark);
+  --color-shadow: var(--color-shadow-dark);
+  --color-border: var(--color-border-dark);
+  --color-icon-filter: var(--color-icon-filter-dark);
+}
+
 /* Карусель услуг */
 .serviceGrid {
   position: relative;
   width: 100%;
   max-width: 1410px;
-  margin: 40px auto 0;
+  margin: var(--spacing-xl) auto 0;
   padding: 0 60px;
 }
 
@@ -16,7 +69,7 @@
 .carouselContainer {
   width: 100%;
   overflow: hidden;
-  padding: 10px 0;
+  padding: var(--spacing-xs) 0;
 }
 
 .carouselWrapper {
@@ -28,29 +81,28 @@
 .carousel {
   display: flex;
   transition: transform 0.5s ease-in-out;
-  gap: 30px;
+  gap: var(--spacing-lg);
   will-change: transform;
   width: max-content;
   margin: 0 auto;
-  padding: 0 10px;
+  padding: 0 var(--spacing-xs);
 }
 
-/* Стили карточек */
 .serviceCard {
   flex: 0 0 410px;
-  background-color: #fff;
+  background-color: var(--color-card-bg);
   border-radius: 20px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  padding: 36px 20px;
+  box-shadow: 0 4px 20px var(--color-shadow);
+  padding: var(--spacing-xl) var(--spacing-md);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
   transition: all 0.3s ease;
+  color: var(--color-text);
 }
 
-/* Кнопки навигации */
 .carouselButton {
   position: absolute;
   top: 50%;
@@ -58,8 +110,8 @@
   z-index: 10;
   width: 50px;
   height: 50px;
-  background: #3980ff;
-  color: white;
+  background: var(--color-primary);
+  color: var(--color-white);
   border: none;
   border-radius: 50%;
   cursor: pointer;
@@ -67,7 +119,16 @@
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 10px var(--color-shadow);
+}
+
+.carouselButton:hover {
+  background: var(--color-dark);
+  transform: translateY(-50%) scale(1.05);
+}
+
+.carouselButton svg {
+  filter: var(--color-icon-filter);
 }
 
 .prev {
@@ -78,18 +139,17 @@
   right: 0;
 }
 
-/* Индикаторы */
 .carouselIndicators {
   display: flex;
   justify-content: center;
-  margin-top: 30px;
-  gap: 8px;
+  margin-top: var(--spacing-lg);
+  gap: var(--spacing-xs);
 }
 
 .indicator {
   width: 30px;
   height: 4px;
-  background: rgba(0, 0, 0, 0.2);
+  background: var(--color-border);
   cursor: pointer;
   transition: all 0.3s ease;
   border-radius: 2px;
@@ -97,7 +157,7 @@
 
 .indicatorActive {
   width: 40px;
-  background: #3980ff;
+  background: var(--color-primary);
 }
 
 /* Адаптивность */
@@ -116,7 +176,7 @@
   .serviceCard {
     flex: 0 0 calc(50vw - 60px);
     min-width: 280px;
-    padding: 32px 18px;
+    padding: var(--spacing-lg) var(--spacing-md);
   }
 }
 
@@ -138,17 +198,17 @@
   }
   
   .carousel {
-    gap: 20px;
+    gap: var(--spacing-md);
   }
   
   .serviceCard {
     flex: 0 0 calc(100vw - 100px);
     min-width: 240px;
-    padding: 28px 16px;
+    padding: var(--spacing-md) var(--spacing-sm);
   }
   
   .carouselIndicators {
-    margin-top: 25px;
+    margin-top: var(--spacing-md);
   }
 }
 
@@ -159,13 +219,13 @@
   
   .serviceCard {
     flex: 0 0 calc(100vw - 80px);
-    padding: 24px 14px;
+    padding: var(--spacing-sm) var(--spacing-xs);
   }
   
   .carouselButton {
     width: 36px;
     height: 36px;
-    display: none; /* Скрываем кнопки на маленьких экранах */
+    display: none;
   }
 }
 
@@ -176,11 +236,11 @@
   
   .serviceCard {
     flex: 0 0 calc(100vw - 60px);
-    padding: 20px 12px;
+    padding: var(--spacing-sm) var(--spacing-xs);
   }
   
   .carouselIndicators {
-    margin-top: 20px;
+    margin-top: var(--spacing-md);
   }
   
   .indicator {

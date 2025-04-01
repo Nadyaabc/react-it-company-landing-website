@@ -1,27 +1,53 @@
 /* main.css */
-@import url('../styles/fonts.css');
-@import url('../styles/header.module.css');
-@import url('../styles/footer.module.css');
+@import url("../styles/fonts.css");
+@import url("../styles/header.module.css");
+@import url("../styles/footer.module.css");
 
 :root {
   /* Базовые настройки */
-  --font-family-main: 'Open Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-  
-  /* Цвета */
+  --font-family-main: "Open Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Цвета светлой темы */
   --color-primary: #3980ff;
   --color-secondary: #eb5757;
+ /*--color-secondary:#121212;*/
   --color-light: #fef4ff;
+  --color-container: #fef4ff;
   --color-dark: #0c4ab3;
   --color-text: #333;
   --color-white: #fff;
+  --color-bg: #fff;
+  --color-card-bg: #fff;
+  --color-shadow: rgba(0, 0, 0, 0.1);
+  --color-border: rgba(0, 0, 0, 0.25);
+  --color-icon-filter: none;
+  --color-point:#0c4ab3;
+  --button-hover:#f34141;
+
+  /* Цвета темной темы */
+  --color-primary-dark: #9e6600;
+/*  --color-secondary-dark: #eb5757;*/
+--color-secondary-dark:#121212;
+  --color-light-dark: #1a1a1a;
+  --color-dark-dark: #1a3d7a;
+  --color-text-dark: #e0e0e0;
+  --color-white-dark: #121212;
+  --color-bg-dark: #121212;
+  --color-card-bg-dark: #1e1e1e;
+  --color-shadow-dark: rgba(0, 0, 0, 0.3);
+  --color-border-dark: rgba(255, 255, 255, 0.1);
+  --color-icon-filter-dark: invert(1) brightness(0.8);
+  --color-container-dark: #121212;
+  --color-point-dark:#121212;
+  --button-hover-dark:#000000;
 
   /* Размеры шрифтов */
   --font-size-base: 1rem; /* 16px */
   --font-size-h1: 3.4375rem; /* 55px */
   --font-size-h2: 2.1875rem; /* 35px */
-  --font-size-h3: 1.5rem;    /* 24px */
+  --font-size-h3: 1.5rem; /* 24px */
   --font-size-text: 1.25rem; /* 20px */
-  --font-size-small: 1rem;   /* 16px */
+  --font-size-small: 1rem; /* 16px */
 
   /* Отступы */
   --spacing-xs: 0.5rem;
@@ -35,6 +61,24 @@
   --breakpoint-tablet: 768px;
   --breakpoint-laptop: 1024px;
   --breakpoint-desktop: 1280px;
+}
+
+/* Темная тема */
+[data-theme="dark"] {
+  --color-primary: var(--color-primary-dark);
+  --color-secondary: var(--color-secondary-dark);
+  --color-light: var(--color-light-dark);
+  --color-dark: var(--color-dark-dark);
+  --color-text: var(--color-text-dark);
+  --color-white: var(--color-white-dark);
+  --color-bg: var(--color-bg-dark);
+  --color-card-bg: var(--color-card-bg-dark);
+  --color-shadow: var(--color-shadow-dark);
+  --color-border: var(--color-border-dark);
+  --color-icon-filter: var(--color-icon-filter-dark);
+  --color-container: var(--color-container-dark);
+  --color-point: var(--color-point-dark);
+  --button-hover:var(--button-hover-dark);
 }
 
 * {
@@ -53,12 +97,13 @@ body {
   font-size: var(--font-size-base);
   line-height: 1.5;
   color: var(--color-text);
-  background-color: var(--color-white);
+  background-color: var(--color-bg);
   overflow-x: hidden;
+  /*transition: background-color 0.3s ease, color 0.3s ease;*/
 }
 
 .container {
-  background-color: var(--color-light);
+  background-color: var(--color-container);
   border-radius: 27px;
   padding: 0;
   max-width: 1793px;
@@ -67,6 +112,7 @@ body {
   flex-direction: column;
   align-items: center;
   margin: 0 auto;
+  /* transition: background-color 0.3s ease;*/
 }
 
 /* Main content styles */
@@ -90,6 +136,7 @@ body {
   margin: 0 auto;
   padding: var(--spacing-xl) 0;
   width: 100%;
+  /*  transition: background-color 0.3s ease;*/
 }
 
 .introduction .content {
@@ -113,9 +160,11 @@ body {
   font-weight: 300;
   margin-bottom: var(--spacing-xl);
   line-height: 1.2;
+  color: white;
 }
 
 .introduction .textBox p {
+  color: white;
   font-size: 1.125rem;
   margin-bottom: var(--spacing-md);
 }
@@ -139,7 +188,9 @@ body {
   height: 40px;
   flex-shrink: 0;
 }
-
+img.icons {
+  filter: var(--color-icon-filter);
+}
 .introduction .button {
   display: flex;
   justify-content: center;
@@ -148,17 +199,19 @@ body {
   height: 73px;
   background-color: var(--color-secondary);
   color: var(--color-white);
+  color:white;
   border: none;
   border-radius: 10px;
   font-size: var(--font-size-text);
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
+  /*transition: all 0.3s ease;*/
   text-decoration: none;
 }
 
 .introduction .button:hover {
-  background-color: #f34141;
+/*  background-color: ;*/
+background-color: var(--button-hover);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(235, 87, 87, 0.3);
 }
@@ -176,6 +229,7 @@ body {
   max-width: 100%;
   height: auto;
   object-fit: contain;
+  filter: var(--color-icon-filter);
 }
 
 /* Services section */
@@ -204,9 +258,13 @@ body {
 .services .content .title h1 {
   font-size: var(--font-size-h1);
   font-weight: 400;
-  max-width: 330px;
+  max-width: 370px;
   width: 100%;
   line-height: 1.2;
+}
+
+h3.serviceTitle {
+  color: black;
 }
 
 .services .content .title p {
@@ -214,6 +272,9 @@ body {
   max-width: 400px;
   width: 100%;
   color: var(--color-text);
+}
+.serviceTitle {
+  font-size: var(--font-size-h3);
 }
 
 .serviceGrid {
@@ -226,16 +287,17 @@ body {
 }
 
 .serviceCard {
-  background-color: var(--color-white);
+  background-color: var(--color-card-bg);
   border-radius: 20px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 20px var(--color-shadow);
   padding: var(--spacing-lg);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease,
+    background-color 0.3s ease;
 }
 
 .serviceCard:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 25px var(--color-shadow);
 }
 
 .cardContent {
@@ -255,6 +317,7 @@ body {
 .heading img {
   max-width: 100%;
   height: auto;
+  filter: var(--color-icon-filter)
 }
 
 .ovalContainer {
@@ -269,12 +332,14 @@ body {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--color-border);
+
   border-radius: 54px;
   padding: var(--spacing-xs) var(--spacing-sm);
   font-size: var(--font-size-small);
   color: var(--color-text);
   white-space: nowrap;
+  transition: border-color 0.3s ease, color 0.3s ease;
 }
 
 /* Problem Solving section */
@@ -284,6 +349,7 @@ body {
   border-radius: 20px;
   margin: 0 auto;
   width: 100%;
+  transition: background-color 0.3s ease;
 }
 
 .problemSolving .content {
@@ -307,6 +373,7 @@ body {
   font-weight: 300;
   line-height: 1.2;
   margin-bottom: var(--spacing-md);
+  color: white;
 }
 
 .problemSolving .grid {
@@ -326,6 +393,7 @@ body {
 .problemSolving .mobilePhone img {
   max-width: 100%;
   height: auto;
+  filter: var(--color-icon-filter);
 }
 
 .textBox {
@@ -345,20 +413,22 @@ body {
 .pointDesc p {
   font-size: 0.9375rem;
   line-height: 1.5;
+  color: white;
 }
 
 .pointTitle {
   display: flex;
   align-items: center;
   margin-bottom: var(--spacing-sm);
+  color: white;
 }
 
 .point {
   width: 34px;
   height: 34px;
   border-radius: 50%;
-  background-color: var(--color-dark);
-  color: var(--color-white);
+  background-color: var(--color-point);
+  color: white;
   display: flex;
   justify-content: center;
   align-items: center;

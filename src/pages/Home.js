@@ -127,17 +127,17 @@ const Main = () => {
               </h1>
               <div className={styles.iconsText}>
                 <div className={styles.iconDescription}>
-                  <img src={rocketIcon} alt="rocket" />
+                  <img className="icons" src={rocketIcon} alt="rocket" />
                   <p>Знаем, как решить вашу задачу оптимальным способом</p>
                 </div>
                 <div className={styles.iconDescription}>
-                  <img src={cupIcon} alt="cup" />
+                  <img  className="icons" src={cupIcon} alt="cup" />
                   <p>
                     Подберем подходящее решение с учетом целей и возможностей
                   </p>
                 </div>
               </div>
-              <a href="./pages/app-order.html" className={styles.button}>
+              <a href="/react-it-company-landing-website/app-order" className={styles.button}>
                 Заказать приложение
               </a>
             </div>
@@ -183,7 +183,7 @@ const Main = () => {
                           <div className={styles.cardContent}>
                             <div className={styles.heading}>
                               <img src={service.icon} alt="icon" />
-                              <h3>{service.title}</h3>
+                              <h3 className={styles.serviceTitle}>{service.title}</h3>
                             </div>
                             <div className={styles.ovalContainer}>
                               {service.details.map((detail, j) => (

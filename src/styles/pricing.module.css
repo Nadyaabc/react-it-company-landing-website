@@ -1,36 +1,80 @@
 @import url('fonts.css');
 
 :root {
-  /* Base font size */
-  --font-size-base: 16px;
-  
-  /* Heading sizes */
-  --font-size-h1: clamp(1.5rem, 5vw, 3.4375rem);
-  --font-size-h2: clamp(1.25rem, 2vw, 1.5rem);
-  --font-size-h3: clamp(1rem, 1.2vw, 1.125rem);
-  
-  /* Card elements */
-  --font-size-cost: clamp(1.25rem, 2vw, 1.5rem);
-  --font-size-card-text: var(--font-size-base);
-  --font-size-button: clamp(0.9375rem, 1.1vw, 1.0625rem);
+  /* Typography */
+  --text-base: 16px;
+  --text-h1: clamp(1.5rem, 5vw, 3.4375rem);
+  --text-h2: clamp(1.25rem, 2vw, 1.5rem);
+  --text-h3: clamp(1rem, 1.2vw, 1.125rem);
+  --text-price: clamp(1.25rem, 2vw, 1.5rem);
+  --text-card:  1rem;
+  --text-btn: clamp(0.9375rem, 1.1vw, 1.0625rem);
   
   /* Spacing */
-  --margin-top-h1: clamp(1.875rem, 5vw, 4.9375rem);
-  --margin-top-h3: clamp(1.25rem, 3vw, 2.5rem);
-  --margin-top-grid: clamp(1.875rem, 4vw, 3.5625rem);
+  --spacing-h1: clamp(1.875rem, 5vw, 4.9375rem);
+  --spacing-h3: clamp(1.25rem, 3vw, 2.5rem);
+  --spacing-grid: clamp(1.875rem, 4vw, 3.5625rem);
   
-  /* Card dimensions */
-  --card-min-height: 503px;
+  /* Sizes */
+  --card-height: 503px;
   --card-padding: 20px;
-  --button-height: 73px;
+  --btn-height: 73px;
+
+  /* Light Theme */
+  --light-bg: #fef4ff;
+  --light-card: #fff;
+  --light-text: #000;
+  --light-secondary-text: #333;
+  --light-accent: #3980ff;
+  --light-border: #3980ff;
+  --light-shadow: rgba(0, 0, 0, 0.1);
+  --light-icon: none;
+  /* Dark Theme */
+  --dark-bg: #121212;
+  --dark-card: #1e1e1e;
+  --dark-text: #fff;
+  --dark-secondary-text: #e0e0e0;
+  --dark-accent: #9e6600;
+  --dark-border: #5a9cff;
+  --dark-shadow: rgba(0, 0, 0, 0.3);
+  --dark-icon: invert(1) brightness(0.8);
+
+
+  /* Current Theme (default light) */
+  --clr-bg: var(--light-bg);
+  --clr-card: var(--light-card);
+  --clr-text: var(--light-text);
+  --clr-text-secondary: var(--light-secondary-text);
+  --clr-accent: var(--light-accent);
+  --clr-border: var(--light-border);
+  --clr-shadow: var(--light-shadow);
+  --clr-icon: var(--light-icon);
+  --clr-button: var(--light-button);
+}
+
+[data-theme="dark"] {
+  --clr-bg: var(--dark-bg);
+  --clr-card: var(--dark-card);
+  --clr-text: var(--dark-text);
+  --clr-text-secondary: var(--dark-secondary-text);
+  --clr-accent: var(--dark-accent);
+  --clr-border: var(--dark-border);
+  --clr-shadow: var(--dark-shadow);
+  --clr-icon: var(--dark-icon);
+  --clr-button:var(--dark-button);
 }
 
 * {
   font-family: var(--font-main);
-  font-size: var(--font-size-base);
+ /* font-size: var(--text-base);*/
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body {
+  background-color: var(--clr-bg);
+  color: var(--clr-text);
 }
 
 main {
@@ -41,7 +85,7 @@ main {
 }
 
 .container {
-  background-color: #fef4ff;
+  background-color: var(--clr-bg);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -53,19 +97,21 @@ main {
 }
 
 .mainContainer h1 {
-  font-size: var(--font-size-h1);
+  font-size: var(--text-h1);
   font-weight: bold;
-  margin: var(--margin-top-h1) 0 0;
+  margin: var(--spacing-h1) 0 0;
   text-align: center;
   line-height: 1.2;
+  color: var(--clr-text);
 }
 
 .mainContainer h3 {
-  margin-top: var(--margin-top-h3);
-  font-size: var(--font-size-h3);
+  margin-top: var(--spacing-h3);
+  font-size: var(--text-h3);
   font-weight: normal;
   text-align: center;
   line-height: 1.5;
+  color: var(--clr-text);
 }
 
 .pricingGrid {
@@ -75,18 +121,18 @@ main {
   flex-wrap: wrap;
   justify-content: center;
   gap: 30px;
-  margin: var(--margin-top-grid) auto 0;
+  margin: var(--spacing-grid) auto 0;
 }
 
 .pricingCard {
   width: 100%;
   max-width: 421px;
-  min-height: var(--card-min-height);
-  background-color: #fff;
+  min-height: var(--card-height);
+  background-color: var(--clr-card);
   border-radius: 20px;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 20px var(--clr-shadow);
   padding: var(--card-padding);
   flex: 1 1 300px;
 }
@@ -110,6 +156,7 @@ main {
   height: 3.1875em;
   margin-right: 0.625em;
   object-fit: contain;
+  filter: var(--clr-icon);
 }
 
 #icon1 {
@@ -118,8 +165,8 @@ main {
 
 .heading h2 {
   margin: 0;
-  font-size: var(--font-size-h2);
-  color: #000;
+  font-size: var(--text-h2);
+  color: var(--clr-text);
   line-height: 1;
 }
 
@@ -135,39 +182,42 @@ main {
 
 .cardContent ul li {
   font-family: var(--font-main);
-  font-size: var(--font-size-card-text);
+  font-size: var(--text-card);
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 8px 0;
   line-height: 1.4;
+  color: var(--clr-text-secondary);
 }
 
 .cardContent ul li img {
   width: 21px;
   height: 21px;
   flex-shrink: 0;
+  filter: var(--clr-icon);
 }
 
 h2.cost {
-  font-size: var(--font-size-cost);
+  font-size: var(--text-price);
   font-weight: bold;
   margin: 20px 0;
   text-align: center;
   line-height: 1.2;
+  color: var(--clr-text);
 }
 
 .order {
   display: flex;
-  background-color: white;
-  color: #3980ff;
-  border: 1px solid #3980ff;
+  background-color: var(--clr-card);
+  color: var(--clr-accent);
+  border: 1px solid var(--clr-accent);
   border-radius: 10px;
   cursor: pointer;
-  font-size: var(--font-size-button);
+  font-size: var(--text-btn);
   text-align: center;
-  height: var(--button-height);
+  height: var(--btn-height);
   width: 100%;
   max-width: 278px;
   margin: 0 auto;
@@ -179,8 +229,8 @@ h2.cost {
 }
 
 .order:hover {
-  background-color: #3980ff;
-  color: white;
+  background-color: var(--clr-accent);
+  color: var(--clr-card);
 }
 
 .orderText {
@@ -188,14 +238,14 @@ h2.cost {
   white-space: nowrap;
 }
 
-/* Responsive adjustments */
+
 @media (max-width: 768px) {
   .pricingGrid {
     gap: 20px;
   }
   
   .pricingCard {
-    flex: 1 1 100%;
+    flex: 1 1 100%
   }
 }
 

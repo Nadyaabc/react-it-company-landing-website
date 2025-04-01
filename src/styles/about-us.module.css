@@ -1,4 +1,3 @@
-
 :root {
   /* Базовые размеры с защитой от переполнения */
   --font-size-base: clamp(14px, 1vw, 16px);
@@ -15,7 +14,30 @@
   /* Размеры блоков */
   --box-width: min(100%, 315px);
   --box-height: clamp(80px, 8vw, 106px);
+
+  /* Цвета светлой темы (по умолчанию) */
+  --bg-primary: #fef4ff;
+  --bg-secondary: #ffffff;
+  --text-primary: #000000;
+  --text-secondary: #555555;
+  --accent-color: #3980ff;
+  --border-color: #acacac;
+  --shadow-color: rgba(0, 0, 0, 0.25);
+  --error-color: #ff0000;
 }
+
+/* Темная тема */
+[data-theme="dark"] {
+  --bg-primary: #121212;
+  --bg-secondary: #1e1e1e;
+  --text-primary: #ffffff;
+  --text-secondary: #b0b0b0;
+  --accent-color:#9e6600;
+  --border-color: #333333;
+  --shadow-color: rgba(0, 0, 0, 0.5);
+  --error-color: #ff6b6b;
+}
+
 /* Подключение шрифтов */
 @font-face {
   font-family: 'Open Sans';
@@ -39,6 +61,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: var(--font-family-main);
+/*  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;*/
 }
 
 html {
@@ -47,10 +70,12 @@ html {
 
 body {
   overflow-x: hidden;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
 }
 
 .container {
-  background-color: #fef4ff;
+  background-color: var(--bg-primary);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -62,14 +87,13 @@ body {
 }
 
 main {
-/*  max-width: 1288px;*/
   width: 100%;
   margin: 0 auto;
   text-align: left;
 }
 
 .title {
-  margin-top: 2.75rem; /* 60px / 16px */
+  margin-top: 2.75rem;
   padding-left: 0;
   text-align: left;
 }
@@ -77,22 +101,24 @@ main {
 .title h1 {
   font-size: var(--font-size-h1);
   margin: 0;
+  color: var(--text-primary);
 }
 
 main p {
-  margin-top: 1.875rem; /* 30px / 16px */
+  margin-top: 1.875rem;
   font-size: var(--font-size-text);
   padding-left: 0;
   line-height: 150%;
   text-align: left;
+  color: var(--text-primary);
 }
 
 .mainContainer {
-  margin-top: 2.75rem; /* 44px / 16px */
+  margin-top: 2.75rem;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 1.25rem; /* 20px / 16px */
+  gap: 1.25rem;
   text-align: left;
 }
 
@@ -101,32 +127,33 @@ main p {
   flex-direction: row;
   flex-wrap: wrap;
   box-sizing: border-box;
-  background-color: #3980ff;
+  background-color: var(--accent-color);
   max-width: 407px;
-  min-height: auto; 
+  min-height: auto;
   height: auto;
   width: 100%;
   border-radius: 1.25rem;
-  box-shadow: 0 0.25rem 0.25rem 0 rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0.25rem 0.25rem 0 var(--shadow-color);
   overflow: hidden;
 }
 
 .blockInfo {
   color: white;
-  font-size: var(--font-size-block);
+  font-size: var(--font-size-text);
   padding: 2.0625rem;
   height: auto;
-  width: 100%; /* Добавлено */
-  display: flex; /* Добавлено */
-  flex-direction: column; /* Добавлено */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .blockInfo p {
   letter-spacing: 0;
   margin-top: 1.125rem;
-  flex-grow: 1; /* Текст будет занимать доступное пространство */
-  overflow-wrap: break-word; /* Перенос длинных слов */
-  hyphens: auto; /* Автоматическая расстановка переносов (если поддерживается) */
+  flex-grow: 1;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  color:white;
 }
 
 .blockInfo h2 {
@@ -134,54 +161,26 @@ main p {
   font-weight: bold;
   text-align: center;
   margin-top: 0;
-  
-  flex-grow: 1; /* Текст будет занимать доступное пространство */
-  overflow-wrap: break-word; /* Перенос длинных слов */
-  hyphens: auto; /* Автоматическая расстановка переносов (если поддерживается) */
+  flex-grow: 1;
+  overflow-wrap: break-word;
+  hyphens: auto;
 }
-/*
-.block {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  box-sizing: border-box;
-  background-color: #3980ff;
-  max-width: 407px;
-  min-height: 529px;
-  width: 100%;
-  border-radius: 1.25rem; 
-  box-shadow: 0 0.25rem 0.25rem 0 rgba(0, 0, 0, 0.25);
-}
-
-.blockInfo {
-  color: white;
-  font-size: var(--font-size-block);
-  padding: 2.0625rem; 
-  height: auto;
-}
-
-
-
-.blockInfo p {
-  letter-spacing: 0;
-  margin-top: 3.125rem; 
-}*/
 
 .photos {
-  margin-top: 2.75rem; /* 44px / 16px */
+  margin-top: 2.75rem;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1.25rem; /* 20px / 16px */
+  gap: 1.25rem;
 }
 
 .photos img {
   width: 100%;
   height: auto;
-  border: var(--border-width) solid white;
-  border-radius: 1.25rem; /* 20px / 16px */
-  box-shadow: 0 0.25rem 0.25rem 0 rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--bg-secondary);
+  border-radius: 1.25rem;
+  box-shadow: 0 0.25rem 0.25rem 0 var(--shadow-color);
   cursor: pointer;
 }
 
@@ -192,12 +191,14 @@ main p {
 }
 
 figcaption {
-  margin-top: 0.625rem; /* 10px / 16px */
+  margin-top: 0.625rem;
   font-size: var(--font-size-text);
   padding-left: 0;
   line-height: 150%;
+  color: var(--text-primary);
 }
 
+/* Адаптивные стили */
 @media (max-width: 1280px) {
   main {
     max-width: 90%;
@@ -231,8 +232,6 @@ figcaption {
   :root {
     --font-size-h1: 2.5rem;
     --font-size-h2: 1.75rem;
-    --font-size-text: 1rem;
-    --font-size-block: 1.125rem;
   }
 
   .mainContainer {
@@ -272,7 +271,7 @@ figcaption {
   }
 
   .photos {
-    margin-top: 1.875rem; /* 30px / 16px */
+    margin-top: 1.875rem;
   }
 }
 
@@ -281,7 +280,6 @@ figcaption {
     --font-size-h1: 1.75rem;
     --font-size-h2: 1.25rem;
     --font-size-text: 0.875rem;
-    --font-size-block: 0.875rem;
   }
 
   .title h1 {
@@ -290,10 +288,6 @@ figcaption {
 
   .block {
     padding: 5%;
-  }
-
-  .blockInfo {
-    font-size: var(--font-size-block);
   }
   
   .blockInfo h2 {

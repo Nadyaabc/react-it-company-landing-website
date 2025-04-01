@@ -1,3 +1,4 @@
+/* Обновленный Toolbar.css */
 .floating-toolbar {
   position: fixed;
   bottom: 20px;
@@ -7,6 +8,52 @@
   font-family: var(--font-family, sans-serif);
 }
 
+/* Основные стили для светлой темы */
+.toolbar-content {
+  position: absolute;
+  bottom: 60px;
+  right: 0;
+  width: 280px;
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+  color: #333;
+}
+
+/* Стили для темной темы */
+[data-theme="dark"] .toolbar-content {
+  background: #2d3748;
+  color: #f7fafc;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .toolbar-content h3 {
+  color: #f7fafc;
+}
+
+[data-theme="dark"] .toolbar-section label {
+  color: #e2e8f0;
+}
+
+[data-theme="dark"] .size-btn {
+  background: #4a5568;
+  color: white;
+}
+
+[data-theme="dark"] .size-btn:hover {
+  background: #2d3748;
+}
+
+[data-theme="dark"] .toggle-label {
+  color: #e2e8f0;
+}
+
+/* Общие стили, которые не зависят от темы */
 .toolbar-toggle {
   width: 50px;
   height: 50px;
@@ -28,21 +75,6 @@
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
-.toolbar-content {
-  position: absolute;
-  bottom: 60px;
-  right: 0;
-  width: 280px;
-  background: white;
-  border-radius: 15px;
-  padding: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(20px);
-  transition: all 0.3s ease;
-}
-
 .floating-toolbar.expanded .toolbar-content {
   opacity: 1;
   visibility: visible;
@@ -52,7 +84,6 @@
 .toolbar-content h3 {
   margin-top: 0;
   margin-bottom: 15px;
-  color: #333;
   font-size: 1.2em;
 }
 
@@ -63,7 +94,6 @@
 .toolbar-section label {
   display: block;
   margin-bottom: 8px;
-  color: #555;
   font-size: 0.9em;
 }
 
@@ -112,10 +142,6 @@ input:checked + .slider:before {
   transform: translateX(26px);
 }
 
-.toggle-label {
-  font-size: 0.9em;
-}
-
 /* Стили для управления размером шрифта */
 .font-size-controls {
   display: flex;
@@ -141,60 +167,27 @@ input:checked + .slider:before {
   background: #e0e0e0;
 }
 
-.font-size-value {
-  min-width: 40px;
-  text-align: center;
-  font-weight: bold;
-}
-
-/* Стили для выпадающих списков */
-.font-select,
-.lang-select {
+/* Стили для кнопки сброса */
+.reset-btn {
   width: 100%;
   padding: 8px;
+  margin-top: 10px;
+  background: #f0f0f0;
+  border: none;
   border-radius: 6px;
-  border: 1px solid #ddd;
-  background: white;
-  font-size: 0.9em;
+  cursor: pointer;
+  transition: all 0.2s;
 }
 
-/* Темная тема */
-.dark-theme .toolbar-content {
-  background: #333;
+[data-theme="dark"] .reset-btn {
+  background: #4a5568;
   color: white;
 }
 
-.dark-theme .toolbar-content h3 {
-  color: white;
+.reset-btn:hover {
+  background: #e0e0e0;
 }
 
-.dark-theme .toolbar-section label {
-  color: #ddd;
-}
-
-.dark-theme .size-btn {
-  background: #444;
-  color: white;
-}
-
-.dark-theme .font-select,
-.dark-theme .lang-select {
-  background: #444;
-  color: white;
-  border-color: #555;
-}
-
-/* Высокая контрастность */
-.high-contrast .toolbar-content {
-  background: black !important;
-  color: yellow !important;
-  border: 2px solid yellow !important;
-}
-
-.high-contrast .toolbar-content h3 {
-  color: yellow !important;
-}
-
-.high-contrast .toolbar-section label {
-  color: yellow !important;
+[data-theme="dark"] .reset-btn:hover {
+  background: #2d3748;
 }

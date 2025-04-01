@@ -35,6 +35,33 @@
   --box-height: clamp(80px, 8vw, 106px);
   --input-height: clamp(50px, 6vw, 64px);
   --button-width: clamp(280px, 90%, 320px);
+  --bg-primary: #fef4ff;
+  --bg-secondary: #ffffff;
+  --text-primary: #000000;
+  --text-secondary: #555555;
+  --border-color: #acacac;
+  --input-bg: #ffffff;
+  --error-color: #ff0000;
+  
+  --light-button: #3980ff;
+  
+  /* Общие переменные */
+  --accent-color1:#3980ff;
+
+  --accent-color: #3980ff;
+}
+
+[data-theme="dark"] {
+  --bg-primary: #121212;
+  --bg-secondary: #1e1e1e;
+  --text-primary: #ffffff;
+  --text-secondary: #b0b0b0;
+  --border-color: #333333;
+  --input-bg: #2d2d2d;
+  --error-color: #ff6b6b;
+  --accent-color:#9e6600;
+  --light-button: #9e6600;
+  --accent-color1:#9e6600;
 }
 
 * {
@@ -44,20 +71,21 @@
 }
 body {
   font-family: var(--font-family-main);
-  background-color: #fef4ff;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
 }
 .error {
-  color: red;
+  color: var(--error-color);
   font-size: 14px;
   display: none;
 }
 .selected {
-  border: 2px solid blue;
+  border: 2px solid var(--accent-color1);
 }
 .container {
   font-family: var(--font-family-main);
   font-size: var(--font-size-base);
-  background-color: #fef4ff;
+  background-color: var(--bg-primary);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -113,17 +141,18 @@ body {
 }
 
 .box {
-  border: 1px solid #3980ff;
+  
   border-radius: 93px;
   width: 100%; /* Установите ширину в 100% для адаптивности */
   height: var(--box-height);
   text-align: center;
-  background-color: #ffffff;
-  transition: background-color 0.3s;
   display: flex;
   flex-direction: row;
   align-items: center;
   box-sizing: border-box;
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--accent-color);
 }
 .box p {
   margin: auto auto;
@@ -132,7 +161,7 @@ body {
 
 .box:hover,
 .box.selected {
-  background-color: #3980ff;
+  background-color: var(--accent-color1);
   color: white;
   font-size: var(--font-size-text);
 }
@@ -165,19 +194,21 @@ textarea {
   width: 100%;
   outline: none;
   padding-left: 34px;
-  border: 1px solid #acacac;
   border-radius: 10px;
-  color: #acacac;
+
   box-sizing: border-box;
   resize: none;
   
   font-size: var(--font-size-text);
   font-family: var(--font-family-main);
+  background-color: var(--input-bg);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
 }
 
 button {
   margin-top: 9px;
-  background-color: #3980ff;
+  background-color: var(--light-button);
   color: white;
   border: none;
   border-radius: 10px;
@@ -187,11 +218,12 @@ button {
   width: 320px;
   height: 73px;
 }
+
 input[type="text"]:hover,
 textarea:hover,
 input[type="text"]:focus-within,
 textarea:focus {
-  border: 3px solid #3980ff;
+  border: 3px solid var(--accent-color1);
   color: #000;
   font-weight: 300;
 }

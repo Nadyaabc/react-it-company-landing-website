@@ -3,93 +3,49 @@ import './Toolbar.css';
 
 export const Toolbar = () => {
   const [expanded, setExpanded] = useState(false);
-  const [darkMode, setDarkMode] = useState(false);
-  const [fontSize, setFontSize] = useState(16);
-  const [fontFamily, setFontFamily] = useState('sans-serif');
-  const [highContrast, setHighContrast] = useState(false);
-  const [imagesHidden, setImagesHidden] = useState(false);
-  const [language, setLanguage] = useState('ru');
+  const [darkMode, setDarkMode] = useState(() => {
+   
+    const saved = localStorage.getItem('darkMode');
+    if (saved !== null) return saved === 'true';
+    return window.matchMedia('(prefers-color-scheme: dark)').matches;
+  });
+  
+  const [fontSize, setFontSize] = useState(() => {
+    const saved = localStorage.getItem('fontSize');
+    return saved ? parseInt(saved) : 16;
+  });
+  
+  const [imagesHidden, setImagesHidden] = useState(() => {
+    return localStorage.getItem('imagesHidden') === 'true';
+  });
 
-  // Применение настроек при изменении
   useEffect(() => {
-    document.documentElement.style.setProperty('--font-size', `${fontSize}px`);
-    document.documentElement.style.fontFamily = fontFamily;
-    
     if (darkMode) {
-      document.documentElement.classList.add('dark-theme');
-      document.documentElement.classList.remove('light-theme');
+      document.documentElement.setAttribute('data-theme', 'dark');
     } else {
-      document.documentElement.classList.add('light-theme');
-      document.documentElement.classList.remove('dark-theme');
+      document.documentElement.setAttribute('data-theme', 'light');
     }
-
-    if (highContrast) {
-      document.documentElement.classList.add('high-contrast');
-    } else {
-      document.documentElement.classList.remove('high-contrast');
-    }
-
+    
+    // Применяем размер шрифта
+    document.documentElement.style.fontSize = `${fontSize}px`;
+    
+    // Управляем изображениями
     document.querySelectorAll('img').forEach(img => {
       img.style.display = imagesHidden ? 'none' : '';
     });
 
-    localStorage.setItem('toolbarSettings', JSON.stringify({
-      darkMode,
-      fontSize,
-      fontFamily,
-      highContrast,
-      imagesHidden
-    }));
-  }, [darkMode, fontSize, fontFamily, highContrast, imagesHidden]);
-
-  // Загрузка сохраненных настроек
-  useEffect(() => {
-    // Применяем размер шрифта через CSS переменную
-    document.documentElement.style.setProperty('--font-size-base', `${fontSize}px`);
-    
-    // Остальные настройки...
-    document.documentElement.style.fontFamily = fontFamily;
-    
-    if (darkMode) {
-      document.documentElement.classList.add('dark-theme');
-      document.documentElement.classList.remove('light-theme');
-    } else {
-      document.documentElement.classList.add('light-theme');
-      document.documentElement.classList.remove('dark-theme');
-    }
-  
-    if (highContrast) {
-      document.documentElement.classList.add('high-contrast');
-    } else {
-      document.documentElement.classList.remove('high-contrast');
-    }
-  
-    document.querySelectorAll('img').forEach(img => {
-      img.style.display = imagesHidden ? 'none' : '';
-    });
-  
-    localStorage.setItem('toolbarSettings', JSON.stringify({
-      darkMode,
-      fontSize,
-      fontFamily,
-      highContrast,
-      imagesHidden
-    }));
-  }, [darkMode, fontSize, fontFamily, highContrast, imagesHidden]);
-
-  const handleLanguageChange = (lang) => {
-    setLanguage(lang);
-    console.log('Язык изменен на:', lang);
-  };
+    // Сохраняем настройки
+    localStorage.setItem('darkMode', darkMode);
+    localStorage.setItem('fontSize', fontSize);
+    localStorage.setItem('imagesHidden', imagesHidden);
+  }, [darkMode, fontSize, imagesHidden]);
 
   return (
     <div className={`floating-toolbar ${expanded ? 'expanded' : ''}`}>
-      {/* Кнопка-иконка для раскрытия */}
       <button className="toolbar-toggle" onClick={() => setExpanded(!expanded)}>
         {expanded ? '✕' : '⚙️'}
       </button>
       
-      {/* Содержимое панели */}
       <div className="toolbar-content">
         <h3>Настройки доступности</h3>
         
@@ -106,7 +62,7 @@ export const Toolbar = () => {
         </div>
         
         <div className="toolbar-section">
-          <label>Размер текста: {fontSize}px</label>
+          <label>Размер текста</label>
           <div className="font-size-controls">
             <button 
               className="size-btn" 
@@ -114,7 +70,6 @@ export const Toolbar = () => {
             >
               A-
             </button>
-            <span className="font-size-value">{fontSize}px</span>
             <button 
               className="size-btn" 
               onClick={() => setFontSize(prev => Math.min(24, prev + 1))}
@@ -122,31 +77,6 @@ export const Toolbar = () => {
               A+
             </button>
           </div>
-        </div>
-        
-        <div className="toolbar-section">
-          <label>Шрифт:</label>
-          <select
-            value={fontFamily}
-            onChange={(e) => setFontFamily(e.target.value)}
-            className="font-select"
-          >
-            <option value="sans-serif">Без засечек</option>
-            <option value="serif">С засечками</option>
-            <option value="monospace">Моноширинный</option>
-          </select>
-        </div>
-        
-        <div className="toolbar-section">
-          <label className="toggle-switch">
-            <input 
-              type="checkbox" 
-              checked={highContrast} 
-              onChange={(e) => setHighContrast(e.target.checked)} 
-            />
-            <span className="slider round"></span>
-            <span className="toggle-label">Высокий контраст</span>
-          </label>
         </div>
         
         <div className="toolbar-section">
@@ -160,23 +90,10 @@ export const Toolbar = () => {
             <span className="toggle-label">Скрыть изображения</span>
           </label>
         </div>
-        
-        <div className="toolbar-section">
-          <label>Язык:</label>
-          <select
-            value={language}
-            onChange={(e) => handleLanguageChange(e.target.value)}
-            className="lang-select"
-          >
-            <option value="ru">Русский</option>
-            <option value="en">English</option>
-          </select>
-        </div>
       </div>
     </div>
   );
 };
-
 /*
 import { useState, useEffect } from 'react';
 import './Toolbar.css';
