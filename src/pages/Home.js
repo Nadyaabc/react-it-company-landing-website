@@ -131,13 +131,16 @@ const Main = () => {
                   <p>Знаем, как решить вашу задачу оптимальным способом</p>
                 </div>
                 <div className={styles.iconDescription}>
-                  <img  className="icons" src={cupIcon} alt="cup" />
+                  <img className="icons" src={cupIcon} alt="cup" />
                   <p>
                     Подберем подходящее решение с учетом целей и возможностей
                   </p>
                 </div>
               </div>
-              <a href="/react-it-company-landing-website/app-order" className={styles.button}>
+              <a
+                href="/react-it-company-landing-website/app-order"
+                className={styles.button}
+              >
                 Заказать приложение
               </a>
             </div>
@@ -156,45 +159,49 @@ const Main = () => {
               </p>
             </div>
             <section className={carousel.serviceGrid}>
-              <div className={carousel.carouselOuter}>
+              <div className={carousel.carouselControls}>
                 <button
                   className={`${carousel.carouselButton} ${carousel.prev}`}
                   onClick={prevSlide}
                 >
                   ❮
                 </button>
-                <div className={carousel.carouselContainer}>
-                  <div className={carousel.carouselWrapper}>
-                    <div
-                      className={carousel.carousel}
-                      ref={carouselRef}
-                      style={{
-                        display: "flex",
-                        gap: "30px",
-                        transition: "transform 0.5s ease-in-out",
-                      }}
-                    >
-                      {services.map((service, i) => (
-                        <div
-                          key={i}
-                          className={carousel.serviceCard}
-                          style={{ width: `${cardWidth}px` }}
-                        >
-                          <div className={styles.cardContent}>
-                            <div className={styles.heading}>
-                              <img src={service.icon} alt="icon" />
-                              <h3 className={styles.serviceTitle}>{service.title}</h3>
-                            </div>
-                            <div className={styles.ovalContainer}>
-                              {service.details.map((detail, j) => (
-                                <span key={j} className={styles.oval}>
-                                  {detail}
-                                </span>
-                              ))}
+                <div className={carousel.carouselOuter}>
+                  <div className={carousel.carouselContainer}>
+                    <div className={carousel.carouselWrapper}>
+                      <div
+                        className={carousel.carousel}
+                        ref={carouselRef}
+                        style={{
+                          display: "flex",
+                          gap: "30px",
+                          transition: "transform 0.5s ease-in-out",
+                        }}
+                      >
+                        {services.map((service, i) => (
+                          <div
+                            key={i}
+                            className={carousel.serviceCard}
+                            style={{ width: `${cardWidth}px` }}
+                          >
+                            <div className={styles.cardContent}>
+                              <div className={styles.heading}>
+                                <img src={service.icon} alt="icon" />
+                                <h3 className={styles.serviceTitle}>
+                                  {service.title}
+                                </h3>
+                              </div>
+                              <div className={styles.ovalContainer}>
+                                {service.details.map((detail, j) => (
+                                  <span key={j} className={styles.oval}>
+                                    {detail}
+                                  </span>
+                                ))}
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      ))}
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>

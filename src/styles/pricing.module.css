@@ -9,12 +9,12 @@
   --text-price: clamp(1.25rem, 2vw, 1.5rem);
   --text-card:  1rem;
   --text-btn: clamp(0.9375rem, 1.1vw, 1.0625rem);
-  
+
   /* Spacing */
   --spacing-h1: clamp(1.875rem, 5vw, 4.9375rem);
   --spacing-h3: clamp(1.25rem, 3vw, 2.5rem);
   --spacing-grid: clamp(1.875rem, 4vw, 3.5625rem);
-  
+
   /* Sizes */
   --card-height: 503px;
   --card-padding: 20px;
@@ -23,45 +23,70 @@
   /* Light Theme */
   --light-bg: #fef4ff;
   --light-card: #fff;
+  --light-feature-item: #f9f9f9;
+  --light-feature-item-hover: #f0f0f0;
+  --light-feature-item-border: #3980ff;
   --light-text: #000;
   --light-secondary-text: #333;
   --light-accent: #3980ff;
   --light-border: #3980ff;
+  --light-feature-price:#3980ff;
   --light-shadow: rgba(0, 0, 0, 0.1);
   --light-icon: none;
+  --create-plan-button-light:#3980ff;
+  --plan-button-hover-light: #2a6bd8;
+
   /* Dark Theme */
   --dark-bg: #121212;
   --dark-card: #1e1e1e;
+  --dark-feature-item: #232323;
+  --dark-feature-item-hover: #1d1d1d;
+  --dark-feature-item-border: #9e6600;
   --dark-text: #fff;
   --dark-secondary-text: #e0e0e0;
   --dark-accent: #9e6600;
+  --dark-feature-price:#9e6600;
   --dark-border: #5a9cff;
   --dark-shadow: rgba(0, 0, 0, 0.3);
   --dark-icon: invert(1) brightness(0.8);
+  --create-plan-button-dark:#9e6600;
+  --plan-button-hover-dark: #835601;
 
 
   /* Current Theme (default light) */
   --clr-bg: var(--light-bg);
   --clr-card: var(--light-card);
+  --feature-item: var(--light-feature-item);
+  --feature-item-border:var(--light-feature-item-border);
+  --feature-item-hover:var(--light-feature-item-hover);
   --clr-text: var(--light-text);
   --clr-text-secondary: var(--light-secondary-text);
   --clr-accent: var(--light-accent);
+  --feature-price: var(--light-feature-price);
   --clr-border: var(--light-border);
   --clr-shadow: var(--light-shadow);
   --clr-icon: var(--light-icon);
   --clr-button: var(--light-button);
+  --create-plan-button: var(--create-plan-button-light);
+  --plan-button-hover: var(--plan-button-hover-light);
 }
 
 [data-theme="dark"] {
   --clr-bg: var(--dark-bg);
   --clr-card: var(--dark-card);
+  --feature-item: var(--dark-feature-item);
+  --feature-item-border:var(--dark-feature-item-border);
+  --feature-item-hover:var(--dark-feature-item-hover);
   --clr-text: var(--dark-text);
   --clr-text-secondary: var(--dark-secondary-text);
   --clr-accent: var(--dark-accent);
   --clr-border: var(--dark-border);
+  --feature-price: var(--dark-feature-price);
   --clr-shadow: var(--dark-shadow);
   --clr-icon: var(--dark-icon);
   --clr-button:var(--dark-button);
+  --create-plan-button: var(--create-plan-button-dark);
+  --plan-button-hover:var(--plan-button-hover-dark);
 }
 
 * {
@@ -208,7 +233,7 @@ h2.cost {
   color: var(--clr-text);
 }
 
-.order {
+.order, .orderPrice {
   display: flex;
   background-color: var(--clr-card);
   color: var(--clr-accent);
@@ -228,9 +253,8 @@ h2.cost {
   flex-shrink: 0;
 }
 
-.order:hover {
+.order:hover, .orderPrice:hover {
   background-color: var(--clr-accent);
-  color: var(--clr-card);
 }
 
 .orderText {
@@ -238,14 +262,178 @@ h2.cost {
   white-space: nowrap;
 }
 
+.customPlanToggle {
+  text-align: center;
+  margin: 40px 0 20px;
+}
+
+.toggleButton {
+  background-color: var(--create-plan-button);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 24px;
+  font-size: var(--text-btn);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.toggleButton:hover {
+  background-color: var(--plan-button-hover);
+}
+
+.customPlanSection {
+  margin-top: 40px;
+  padding: 30px;
+  background-color: var(--clr-card);
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.customPlanSection h2 {
+  font-size: var(--text-h2);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.customPlanSection p {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: var(--text-card);
+}
+
+.customPlanGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.featuresList {
+  flex: 1;
+  min-width: 100px;
+}
+
+.featureItem {
+  box-sizing: border-box;
+  margin-bottom: 15px;
+  padding: 15px;
+  background-color: var(--feature-item);
+  border-radius: 10px;
+  /*transition: all 0.3s ease;*/
+  transition: background-color 0.3s ease, outline 0.3s ease;
+}
+
+.featureItem.selected {
+  border-color: var(--feature-item-hover);
+  border: 1px solid var(--feature-item-border);
+  padding: 14px;
+}
+
+.featureItem:hover {
+  background-color: var(--feature-item-hover);
+  border: 1px solid var(--feature-item-border);
+  padding: 14px;
+}
+
+.featureItem label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: start;
+  cursor: pointer;
+  width: 100%;
+}
+
+.featureItem label span {
+  flex: 1;
+  text-align: left;
+  margin-left: 20px;
+  font-size: var(--text-card);
+}
+
+.spanPrice {
+  font-size: var(--text-card);
+}
+
+.featureItem label span.featurePrice {
+  text-align: right;
+  margin-right: 20px;
+  font-size: var(--text-card);
+}
+
+.featureItem input {
+  margin-right: 10px;
+}
+
+.featurePrice {
+  color: var(--feature-price);
+  font-weight: bold;
+}
+
+.customPlanSummary {
+  flex: 0 0 500px;
+  padding: 20px;
+  background-color: var(--feature-item);
+  border-radius: 10px;
+}
+
+.customPlanSummary h3 {
+  font-size: var(--text-h3);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.customPlanSummary ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.customPlanSummary ul li {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #ddd;
+  font-size: var(--text-card);
+}
+
+.totalPrice {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 2px solid #3980ff;
+  margin-bottom: 20px;
+}
+
+.totalPrice h4 {
+  margin: 0;
+  font-size: var(-text-h3);
+}
+
+.totalPrice h3 {
+  margin: 0;
+  font-size: var(--text-h3);
+  color: #3980ff;
+}
+
 
 @media (max-width: 768px) {
   .pricingGrid {
     gap: 20px;
   }
-  
+
   .pricingCard {
     flex: 1 1 100%
+  }
+
+  .customPlanGrid {
+    flex-direction: column;
+  }
+
+  .featureItem {
+    padding: 10px;
   }
 }
 
@@ -253,8 +441,20 @@ h2.cost {
   .container {
     padding: 15px;
   }
-  
+
   .order {
     height: 60px;
+  }
+
+  .customPlanSection {
+    padding: 20px 15px;
+  }
+
+  .customPlanSection h2 {
+    font-size: 24px;
+  }
+
+  .featurePrice {
+    font-size: 14px;
   }
 }
