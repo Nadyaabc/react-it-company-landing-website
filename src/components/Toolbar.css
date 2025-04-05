@@ -365,3 +365,8 @@ input:checked + .slider:before {
 [data-theme="dark"] .toolbar-section label {
   color: #e2e8f0;
 }
+@media (max-width: 1020px) {
+  .floating-toolbar {
+    display: none !important;
+  }
+}
