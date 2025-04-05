@@ -1,78 +1,64 @@
-/* Обновленный Toolbar.css */
 .floating-toolbar {
   position: fixed;
   bottom: 20px;
   right: 20px;
   z-index: 1000;
   transition: all 0.3s ease;
-  font-family: var(--font-family, sans-serif);
+  font-family: 'Segoe UI', 'Roboto', sans-serif;
 }
 
-/* Основные стили для светлой темы */
-.toolbar-content {
-  position: absolute;
-  bottom: 60px;
-  right: 0;
-  width: 280px;
-  background: white;
-  border-radius: 15px;
-  padding: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(20px);
-  transition: all 0.3s ease;
-  color: #333;
-}
-
-/* Стили для темной темы */
-[data-theme="dark"] .toolbar-content {
-  background: #2d3748;
-  color: #f7fafc;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-}
-
-[data-theme="dark"] .toolbar-content h3 {
-  color: #f7fafc;
-}
-
-[data-theme="dark"] .toolbar-section label {
-  color: #e2e8f0;
-}
-
-[data-theme="dark"] .size-btn {
-  background: #4a5568;
-  color: white;
-}
-
-[data-theme="dark"] .size-btn:hover {
-  background: #2d3748;
-}
-
-[data-theme="dark"] .toggle-label {
-  color: #e2e8f0;
-}
-
-/* Общие стили, которые не зависят от темы */
 .toolbar-toggle {
-  width: 50px;
-  height: 50px;
+  width: 56px;
+  height: 56px;
   border-radius: 50%;
   background: linear-gradient(135deg, #6e8efb, #a777e3);
   color: white;
   border: none;
   font-size: 24px;
   cursor: pointer;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  z-index: 2;
 }
 
 .toolbar-toggle:hover {
   transform: scale(1.1);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+}
+
+.toolbar-toggle svg {
+  width: 24px;
+  height: 24px;
+}
+
+.toolbar-content {
+  position: absolute;
+  bottom: 70px;
+  right: 0;
+  width: 300px;
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  color: #333;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+[data-theme="dark"] .toolbar-content {
+  background: rgba(45, 55, 72, 0.9);
+  color: #f7fafc;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(74, 85, 104, 0.3);
 }
 
 .floating-toolbar.expanded .toolbar-content {
@@ -81,28 +67,99 @@
   transform: translateY(0);
 }
 
-.toolbar-content h3 {
-  margin-top: 0;
+.toolbar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 15px;
-  font-size: 1.2em;
+}
+
+.toolbar-header h3 {
+  margin: 0;
+  font-size: 1.3em;
+  font-weight: 600;
+  color: inherit;
+}
+
+.reset-btn {
+  background: none;
+  border: none;
+  color: #6e8efb;
+  font-size: 0.9em;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.reset-btn:hover {
+  background: rgba(110, 142, 251, 0.1);
+}
+
+[data-theme="dark"] .reset-btn {
+  color: #a777e3;
+}
+
+[data-theme="dark"] .reset-btn:hover {
+  background: rgba(167, 119, 227, 0.1);
 }
 
 .toolbar-section {
-  margin: 15px 0;
+  margin: 18px 0;
 }
 
 .toolbar-section label {
   display: block;
-  margin-bottom: 8px;
-  font-size: 0.9em;
+  margin-bottom: 10px;
+  font-size: 0.95em;
+  font-weight: 500;
+  color: #4a5568;
 }
 
-/* Стили для переключателей */
+[data-theme="dark"] .toolbar-section label {
+  color: #e2e8f0;
+}
+
+.select-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.language-select {
+  width: 100%;
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  background: white;
+  appearance: none;
+  font-size: 0.95em;
+  color: #4a5568;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+[data-theme="dark"] .language-select {
+  background: #2d3748;
+  border-color: #4a5568;
+  color: #f7fafc;
+}
+
+.select-arrow {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  font-size: 0.8em;
+  color: #718096;
+}
+
 .toggle-switch {
   position: relative;
   display: flex;
   align-items: center;
   cursor: pointer;
+  user-select: none;
 }
 
 .toggle-switch input {
@@ -114,48 +171,73 @@
 .slider {
   position: relative;
   display: inline-block;
-  width: 50px;
-  height: 24px;
-  background-color: #ccc;
+  width: 52px;
+  height: 28px;
+  background-color: #e2e8f0;
   transition: .4s;
-  border-radius: 24px;
-  margin-right: 10px;
+  border-radius: 28px;
+  margin-right: 12px;
 }
 
 .slider:before {
   position: absolute;
   content: "";
-  height: 16px;
-  width: 16px;
+  height: 20px;
+  width: 20px;
   left: 4px;
   bottom: 4px;
   background-color: white;
   transition: .4s;
   border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 input:checked + .slider {
-  background-color: #6e8efb;
+  background: linear-gradient(135deg, #6e8efb, #a777e3);
 }
 
 input:checked + .slider:before {
-  transform: translateX(26px);
+  transform: translateX(24px);
 }
 
-/* Стили для управления размером шрифта */
+.toggle-label {
+  font-size: 0.95em;
+  color: #4a5568;
+}
+
+[data-theme="dark"] .toggle-label {
+  color: #e2e8f0;
+}
+
 .font-size-controls {
   display: flex;
   align-items: center;
-  gap: 10px;
+  justify-content: space-between;
+}
+
+.font-size-value {
+  font-size: 0.95em;
+  color: #4a5568;
+  min-width: 40px;
+}
+
+[data-theme="dark"] .font-size-value {
+  color: #e2e8f0;
+}
+
+.size-buttons {
+  display: flex;
+  gap: 8px;
 }
 
 .size-btn {
   width: 36px;
   height: 36px;
-  border-radius: 50%;
+  border-radius: 8px;
   background: #f0f0f0;
   border: none;
   font-size: 1em;
+  font-weight: 600;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -167,27 +249,119 @@ input:checked + .slider:before {
   background: #e0e0e0;
 }
 
-/* Стили для кнопки сброса */
-.reset-btn {
-  width: 100%;
-  padding: 8px;
-  margin-top: 10px;
-  background: #f0f0f0;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-[data-theme="dark"] .reset-btn {
+[data-theme="dark"] .size-btn {
   background: #4a5568;
   color: white;
 }
 
-.reset-btn:hover {
-  background: #e0e0e0;
+[data-theme="dark"] .size-btn:hover {
+  background: #2d3748;
+}
+.floating-toolbar {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  font-family: 'Segoe UI', 'Roboto', sans-serif;
 }
 
-[data-theme="dark"] .reset-btn:hover {
+.toolbar-toggle {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #4a6cf7, #8a4af7); /* Более насыщенные цвета */
+  color: white;
+  border: 2px solid white; /* Добавляем белую обводку */
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25); /* Более темная тень */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  z-index: 2;
+}
+
+.toolbar-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
+}
+
+.toolbar-content {
+  position: absolute;
+  bottom: 70px;
+  right: 0;
+  width: 300px;
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  color: #222; /* Более темный текст */
+  border: 1px solid #e0e0e0; /* Четкая граница */
+  background: #ffffff; /* Полностью непрозрачный фон */
+}
+
+.toolbar-header h3 {
+  margin: 0;
+  font-size: 1.3em;
+  font-weight: 700; /* Более жирный шрифт */
+  color: #111; /* Очень темный текст */
+}
+
+.toolbar-section label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 0.95em;
+  font-weight: 600; /* Увеличиваем жирность */
+  color: #333; /* Более темный серый */
+}
+
+.language-select {
+  width: 100%;
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: 1px solid #d0d0d0; /* Более контрастная граница */
+  background: white;
+  appearance: none;
+  font-size: 0.95em;
+  color: #333; /* Более темный текст */
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.toggle-switch .slider {
+  background-color: #d0d0d0; /* Более темный серый для неактивного состояния */
+}
+
+.toggle-label {
+  font-size: 0.95em;
+  color: #333; /* Более темный текст */
+  font-weight: 500;
+}
+
+.size-btn {
+  background: #e8e8e8; /* Более светлый фон для контраста */
+  color: #333;
+  border: 1px solid #d0d0d0; /* Добавляем границу */
+}
+
+/* Улучшенные стили для темной темы (для полноты) */
+[data-theme="dark"] .toolbar-content {
   background: #2d3748;
+  color: #f8f8f8;
+  border: 1px solid #4a5568;
+}
+
+[data-theme="dark"] .toolbar-header h3 {
+  color: #fff;
+}
+
+[data-theme="dark"] .toolbar-section label {
+  color: #e2e8f0;
 }

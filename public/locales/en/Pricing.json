@@ -1,0 +1,72 @@
+{
+    "title": "Mobile App Development Pricing",
+    "subtitle": "We've compiled standard app elements into packages to give you an approximate idea of development costs. To order a mobile app, contact us for consultation and audit of other studios' price offers. Below are prices for standard apps.",
+    "plans": [
+      {
+        "id":0,
+        "title": "Standard",
+        "price": "34000 BYN",
+        "features": [
+          "Product or service catalog",
+          "Place an order",
+          "News and promotions",
+          "Feedback",
+          "Contacts"
+        ],
+        "button": "Order app",
+        "link":"/react-it-company-landing-website/app-order"
+      },
+      {
+        "id":1,
+        "title": "Business",
+        "price": "68000 BYN",
+        "features": [
+          "Loyalty program",
+          "Push notifications",
+          "Server component",
+          "Control panel",
+          "Chats"
+        ],
+        "button": "Order app", "link":"/react-it-company-landing-website/app-order"
+      },
+      {
+        "id":2,
+        "title": "Custom",
+        "price": "102000 BYN",
+        "features": [
+          "Business process automation",
+          "Complex integrations",
+          "Marketplace",
+          "Corporate solutions",
+          "Smart TV, Kit, VR/AR"
+        ],
+        "button": "Order app", "link":"/react-it-company-landing-website/app-order"
+      }
+    ],
+    "button": "Order app",
+    "features": [
+      { "id": 1, "name": "Product or Service Catalog", "price": 13000 },
+      { "id": 2, "name": "Place Order", "price": 9500 },
+      { "id": 3, "name": "News and Promotions", "price": 5000 },
+      { "id": 4, "name": "Feedback", "price": 3100 },
+      { "id": 5, "name": "Contacts", "price": 4000 },
+      { "id": 6, "name": "Loyalty Program", "price": 21500 },
+      { "id": 7, "name": "Push Notifications", "price": 14200 },
+      { "id": 8, "name": "Backend", "price": 18000 },
+      { "id": 9, "name": "Control Panel", "price": 12000 },
+      { "id": 10, "name": "Chats", "price": 8600 },
+      { "id": 11, "name": "Business Process Automation", "price": 27000 },
+      { "id": 12, "name": "Complex Integrations", "price": 32000 },
+      { "id": 13, "name": "Marketplace", "price": 17300 },
+      { "id": 14, "name": "Corporate Solutions", "price": 23000 },
+      { "id": 15, "name": "Smart TV, Kit, VR \\ AR", "price": 12000 }
+    ],
+    
+    "hide": "Hide Builder",
+    "create": "Create Your Plan",
+    "individualPlan": "Create Your Custom Plan",
+    "functionChoice": "Select the features you need for your application:",
+    "placeOrder": "Place Order",
+    "sum": "Total:",
+    "successfulOrder": "Your order was placed successfully!"
+  }

@@ -9,34 +9,16 @@ import redTick from "../assets/images/png/red-tick.png";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { useTranslation } from "react-i18next";
-
+import { toast } from 'react-toastify';
 import { Link } from "react-router-dom";
 import LoadingSpinner from "../components/LoadingSpinner";
-
+import 'react-toastify/dist/ReactToastify.css';
 const Pricing = () => {
   const { t, ready } = useTranslation("Pricing");
   const pricingData = t("plans", { returnObjects: true });
   const pricingDataIcons = [pricingIcon1, pricingIcon2, pricingIcon3];
-  const pricingDataTicks=[blueTick, darkBlueTick,redTick];
-  
-
-  const allFeatures = [
-    { id: 1, name: "Каталог товаров или услуг", price: 13000 },
-    { id: 2, name: "Сделать заказ", price: 9500 },
-    { id: 3, name: "Новости и акции", price: 5000 },
-    { id: 4, name: "Обратная связь", price: 3100 },
-    { id: 5, name: "Контакты", price: 4000 },
-    { id: 6, name: "Программа лояльности", price: 21500 },
-    { id: 7, name: "Push уведомления", price: 14200 },
-    { id: 8, name: "Серверная часть", price: 18000 },
-    { id: 9, name: "Панель управления", price: 12000 },
-    { id: 10, name: "Чаты", price: 8600 },
-    { id: 11, name: "Автоматизация бизнес-процессов", price: 27000 },
-    { id: 12, name: "Сложные интеграции", price: 32000 },
-    { id: 13, name: "Маркетплейс", price: 17300 },
-    { id: 14, name: "Корпоративные решения", price: 23000 },
-    { id: 15, name: "Smart TV, Kit, VR \\ AR", price: 12000 },
-  ];
+  const pricingDataTicks = [blueTick, darkBlueTick, redTick];
+  const allFeatures = t("features", { returnObjects: true });
 
   const [selectedFeatures, setSelectedFeatures] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
@@ -58,7 +40,7 @@ const Pricing = () => {
   };
 
   const handleOrder = (event) => {
-    alert("Ваш заказ успешно отправлен на рассмотрение.");
+    toast.success(t("successfulOrder"));
     setSelectedFeatures([]);
     setTotalPrice(0);
   };
@@ -77,7 +59,6 @@ const Pricing = () => {
                 <div key={plans.id} className={styles.pricingCard}>
                   <div className={styles.cardContent}>
                     <div className={styles.heading}>
-                      {/*<img src={card.icon} alt="icon" />*/}
                       <img src={pricingDataIcons[plans.id]} alt="icon" />
                       <h2>{plans.title}</h2>
                     </div>
@@ -89,9 +70,11 @@ const Pricing = () => {
                         </li>
                       ))}
                     </ul>
-                    <h2 className={styles.cost}>{formatPrice(card.price)}</h2>
-                    <a className={styles.order} href={card.link}>
-                      <p className={styles.orderText}>Заказать приложение</p>
+                    <h2 className={styles.cost}>
+                      {formatPrice(parseInt(plans.price))}
+                    </h2>
+                    <a className={styles.order} href={plans.link}>
+                      <p className={styles.orderText}>{t("button")}</p>
                     </a>
                   </div>
                 </div>
@@ -103,14 +86,14 @@ const Pricing = () => {
                 onClick={() => setShowCustomPlan(!showCustomPlan)}
                 className={styles.toggleButton}
               >
-                {showCustomPlan ? "Скрыть конструктор" : "Создать свой план"}
+                {showCustomPlan ? t("hide") : t("create")}
               </button>
             </div>
 
             {showCustomPlan && (
               <section className={styles.customPlanSection}>
-                <h2>Создайте свой индивидуальный план</h2>
-                <p>Выберите нужные функции для вашего приложения:</p>
+                <h2>{t("individualPlan")}</h2>
+                <p>{t("functionChoice")}</p>
 
                 <div className={styles.customPlanGrid}>
                   <div className={styles.featuresList}>
@@ -141,27 +124,31 @@ const Pricing = () => {
                   </div>
 
                   <div className={styles.customPlanSummary}>
-                    <h3>Ваш индивидуальный план</h3>
+                    <h3>{t("individualPlan")}</h3>
                     {selectedFeatures.length > 0 ? (
                       <>
                         <ul>
                           {selectedFeatures.map((feature) => (
                             <li key={feature.id}>
                               {feature.name}
-                              <span className="spanPrice">{formatPrice(feature.price)}</span>
+                              <span className="spanPrice">
+                                {formatPrice(feature.price)}
+                              </span>
                             </li>
                           ))}
                         </ul>
                         <div className={styles.totalPrice}>
-                          <h3>Итого:</h3>
+                          <h3>{t("sum")}</h3>
                           <h3>{formatPrice(totalPrice)}</h3>
                         </div>
                         <a className={styles.orderPrice} onClick={handleOrder}>
-                          <p className={styles.orderPriceText}>Оформить заказ</p>
+                          <p className={styles.orderPriceText}>
+                          {t("placeOrder")}
+                          </p>
                         </a>
                       </>
                     ) : (
-                      <p>Выберите функции для вашего приложения</p>
+                      <p>{t("functionChoice")}</p>
                     )}
                   </div>
                 </div>
@@ -175,10 +162,10 @@ const Pricing = () => {
   );
 };
 
-export default function WrappedPricing(){
-  return(
-    <Suspense fallback={<LoadingSpinner/>}>
-      <Pricing/>
+export default function WrappedPricing() {
+  return (
+    <Suspense fallback={<LoadingSpinner />}>
+      <Pricing />
     </Suspense>
-  )
-};
+  );
+}

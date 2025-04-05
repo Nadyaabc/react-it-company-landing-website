@@ -1,10 +1,176 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
+import { useTranslation } from 'react-i18next';
+
+import './Toolbar.css';
+import LoadingSpinner from "../components/LoadingSpinner";
+
+export const Toolbar = () => {
+  const { t, i18n } = useTranslation("toolbar");
+  const [expanded, setExpanded] = useState(false);
+  const [darkMode, setDarkMode] = useState(() => {
+    const saved = localStorage.getItem('darkMode');
+    if (saved !== null) return saved === 'true';
+    return false; // По умолчанию светлая тема
+  });
+  
+  const [fontSize, setFontSize] = useState(() => {
+    const saved = localStorage.getItem('fontSize');
+    return saved ? parseInt(saved) : 16;
+  });
+  
+  const [imagesHidden, setImagesHidden] = useState(() => {
+    return localStorage.getItem('imagesHidden') === 'true';
+  });
+
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    } else {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+    
+    document.documentElement.style.fontSize = `${fontSize}px`;
+    
+    document.querySelectorAll('img').forEach(img => {
+      img.style.display = imagesHidden ? 'none' : '';
+    });
+
+    localStorage.setItem('darkMode', darkMode);
+    localStorage.setItem('fontSize', fontSize);
+    localStorage.setItem('imagesHidden', imagesHidden);
+  }, [darkMode, fontSize, imagesHidden]);
+
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+    localStorage.setItem('i18nextLng', lng);
+  };
+
+  const resetSettings = () => {
+    setDarkMode(false);    setFontSize(16);
+    setImagesHidden(false);
+  };
+
+  return (
+    <div className={`floating-toolbar ${expanded ? 'expanded' : ''}`}>
+      <button 
+        className="toolbar-toggle" 
+        onClick={() => setExpanded(!expanded)}
+        aria-label={t('toolbar.toggle')}
+      >
+        {expanded ? (
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+          </svg>
+        ) : (
+          <div className="div"></div>
+        )}
+      </button>
+      
+      <div className="toolbar-content">
+        <div className="toolbar-header">
+          <h3>{t('toolbar.title')}</h3>
+         
+        </div>
+        
+        {/* Секция переключения языка */}
+        <div className="toolbar-section">
+          <label>{t('toolbar.language')}</label>
+          <div className="select-wrapper">
+            <select
+              value={i18n.language}
+              onChange={(e) => changeLanguage(e.target.value)}
+              className="language-select"
+            >
+              <option value="en">English</option>
+              <option value="ru">Русский</option>
+            </select>
+            <div className="select-arrow">▼</div>
+          </div>
+        </div>
+
+        <div className="toolbar-section">
+          <label className="toggle-switch">
+            <input 
+              type="checkbox" 
+              checked={darkMode} 
+              onChange={(e) => setDarkMode(e.target.checked)} 
+            />
+            <span className="slider round"></span>
+            <span className="toggle-label">{t('toolbar.dark_mode')}</span>
+          </label>
+        </div>
+        
+        <div className="toolbar-section">
+          <label>{t('toolbar.font_size')}</label>
+          <div className="font-size-controls">
+            <button 
+              className="size-btn decrease" 
+              onClick={() => setFontSize(prev => Math.max(12, prev - 1))}
+              aria-label={t('toolbar.decrease_font')}
+            >
+              <svg width="16" height="2" viewBox="0 0 16 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 1H15" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+              </svg>
+            </button>
+            <div className="font-size-visual">
+              <span style={{ fontSize: '0.8em' }}>A</span>
+              <span style={{ fontSize: '1em' }}>A</span>
+              <span style={{ fontSize: '1.2em' }}>A</span>
+            </div>
+            <button 
+              className="size-btn increase" 
+              onClick={() => setFontSize(prev => Math.min(24, prev + 1))}
+              aria-label={t('toolbar.increase_font')}
+            >
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8 1V15M1 8H15" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div className="toolbar-section">
+          <label className="toggle-switch">
+            <input 
+              type="checkbox" 
+              checked={imagesHidden} 
+              onChange={(e) => setImagesHidden(e.target.checked)} 
+            />
+            <span className="slider round"></span>
+            <span className="toggle-label">{t('toolbar.hide_images')}</span>
+          </label>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+
+export default function WrappeToolBar() {
+  return (
+    <Suspense fallback={<LoadingSpinner />}>
+      <Toolbar />
+    </Suspense>
+  );
+}
+
+
+
+
+
+
+
+
+
+
+
+/*import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import './Toolbar.css';
 
 export const Toolbar = () => {
+  const { t, i18n } = useTranslation();
   const [expanded, setExpanded] = useState(false);
   const [darkMode, setDarkMode] = useState(() => {
-   
     const saved = localStorage.getItem('darkMode');
     if (saved !== null) return saved === 'true';
     return window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -26,29 +192,47 @@ export const Toolbar = () => {
       document.documentElement.setAttribute('data-theme', 'light');
     }
     
-    // Применяем размер шрифта
     document.documentElement.style.fontSize = `${fontSize}px`;
     
-    // Управляем изображениями
     document.querySelectorAll('img').forEach(img => {
       img.style.display = imagesHidden ? 'none' : '';
     });
 
-    // Сохраняем настройки
     localStorage.setItem('darkMode', darkMode);
     localStorage.setItem('fontSize', fontSize);
     localStorage.setItem('imagesHidden', imagesHidden);
   }, [darkMode, fontSize, imagesHidden]);
 
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+    localStorage.setItem('i18nextLng', lng);
+  };
+
   return (
     <div className={`floating-toolbar ${expanded ? 'expanded' : ''}`}>
-      <button className="toolbar-toggle" onClick={() => setExpanded(!expanded)}>
+      <button 
+        className="toolbar-toggle" 
+        onClick={() => setExpanded(!expanded)}
+        aria-label={t('toolbar.toggle')}
+      >
         {expanded ? '✕' : '⚙️'}
       </button>
       
       <div className="toolbar-content">
-        <h3>Настройки доступности</h3>
+        <h3>{t('toolbar.title')}</h3>
         
+        <div className="toolbar-section">
+          <label>{t('toolbar.language')}</label>
+          <select
+            value={i18n.language}
+            onChange={(e) => changeLanguage(e.target.value)}
+            className="language-select"
+          >
+            <option value="en">English</option>
+            <option value="ru">Русский</option>
+          </select>
+        </div>
+
         <div className="toolbar-section">
           <label className="toggle-switch">
             <input 
@@ -57,22 +241,24 @@ export const Toolbar = () => {
               onChange={(e) => setDarkMode(e.target.checked)} 
             />
             <span className="slider round"></span>
-            <span className="toggle-label">Тёмная тема</span>
+            <span className="toggle-label">{t('toolbar.dark_mode')}</span>
           </label>
         </div>
         
         <div className="toolbar-section">
-          <label>Размер текста</label>
+          <label>{t('toolbar.font_size')}</label>
           <div className="font-size-controls">
             <button 
               className="size-btn" 
               onClick={() => setFontSize(prev => Math.max(12, prev - 1))}
+              aria-label={t('toolbar.decrease_font')}
             >
               A-
             </button>
             <button 
               className="size-btn" 
               onClick={() => setFontSize(prev => Math.min(24, prev + 1))}
+              aria-label={t('toolbar.increase_font')}
             >
               A+
             </button>
@@ -87,13 +273,13 @@ export const Toolbar = () => {
               onChange={(e) => setImagesHidden(e.target.checked)} 
             />
             <span className="slider round"></span>
-            <span className="toggle-label">Скрыть изображения</span>
+            <span className="toggle-label">{t('toolbar.hide_images')}</span>
           </label>
         </div>
       </div>
     </div>
   );
-};
+};*/
 /*
 import { useState, useEffect } from 'react';
 import './Toolbar.css';

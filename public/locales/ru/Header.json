@@ -1,0 +1,16 @@
+{
+    "nav": {
+      "home": "Главная",
+      "about": "О нас",
+      "stages": "Этапы работы",
+      "pricing": "Стоимость",
+      "order": "Заказать приложение"
+    },
+    "contacts": {
+      "phone": "+375 (17) 318-17-98",
+      "email": "softerio_tech@gmail.com",
+      "schedule": "График работы: пн-пт с 9:00 до 18:00"
+    },
+    
+    "logo":"../assets/images/svg/logo.svg"
+  }

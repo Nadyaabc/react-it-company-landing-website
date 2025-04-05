@@ -1,0 +1,46 @@
+{
+    "title": "About us",
+    "welcome": "Welcome to Softerio!",
+    "description": "We are a team of professionals united by a common goal: to create innovative software solutions that help businesses reach new heights. Our company was founded in 2004 and has since established itself as a reliable partner for clients worldwide.",
+    
+    "mission": {
+      "title": "Mission",
+      "text": "Our mission is to provide high-quality software solutions that meet the unique needs of our clients. We strive for continuous improvement and implementation of advanced technologies to ensure maximum efficiency and productivity."
+    },
+    
+    "specialists": {
+      "title": "Specialists",
+      "text": "Softerio employs highly qualified specialists with extensive experience in various fields, including web development, UX/UI design and digital marketing. Our team strives to create innovative solutions that help clients achieve their business goals and improve project efficiency."
+    },
+    
+    "values": {
+      "title": "Values",
+      "items": [
+        "Customer focus: We always put our customers' interests first.",
+        "Innovation: We believe in the power of technology and constantly look for new ways to apply it.",
+        "Quality: We strive for high quality in everything we do."
+      ]
+    },
+    
+    "corporate_life": "Our corporate life",
+    "photos": [
+      {
+        "alt": "office",
+        "caption": "Our office"
+      },
+      {
+        "alt": "meeting",
+        "caption": "Morning meeting"
+      },
+      {
+        "alt": "new_year",
+        "caption": "New Year 2025"
+      },
+      {
+        "alt": "christmas",
+        "caption": "New Year corporate party"
+      }
+    ],
+    
+    "view_closer": "View closer"
+  }

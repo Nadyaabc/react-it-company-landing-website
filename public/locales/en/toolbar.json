@@ -1,0 +1,13 @@
+{
+  "toolbar": {
+    "title": "Accessibility Settings",
+    "toggle": "Toggle toolbar",
+    "language": "Language",
+    "dark_mode": "Dark mode",
+    "font_size": "Text size",
+    "decrease_font": "Decrease font size",
+    "increase_font": "Increase font size",
+    "hide_images": "Hide images",
+    "reset": "Reset all"
+  }
+}

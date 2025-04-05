@@ -1,0 +1,34 @@
+{
+    "title": "Development Stages",
+    "stages": [
+      {
+        "title": "Requirements Gathering",
+        "description": "Detailed study of requirements, resources and source information on the project and formation of technical specifications for software development."
+      },
+      {
+        "title": "UX/UI Design",
+        "description": "Development of modern functional and user-friendly design using the latest tools."
+      },
+      {
+        "title": "Prototype (MVP)",
+        "description": "As a result of the design, a prototype is formed and sent for product development."
+      },
+      {
+        "title": "Development",
+        "description": "The process of developing an intelligent accounting system, mobile application or website in maximum transparency mode."
+      },
+      {
+        "title": "Testing",
+        "description": "During test runs, we ensure complete fault tolerance of the product."
+      },
+      {
+        "title": "Deployment",
+        "description": "Launching the finished product into operation (ISU, website, application)."
+      },
+      {
+        "title": "Support and Maintenance",
+        "description": "We provide full technical support and maintenance on all issues arising after deployment."
+      }
+    ],
+    "cta": "Submit Application"
+  }

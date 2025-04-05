@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, Suspense } from "react";
 import styles from '../styles/app-order.module.css';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { useTranslation } from 'react-i18next';
 
+import LoadingSpinner from "../components/LoadingSpinner";
 const AppOrder = () => {
+  const { t, ready } = useTranslation('AppOrder');
   const [selectedBudget, setSelectedBudget] = useState(null);
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
@@ -17,16 +20,16 @@ const AppOrder = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const newErrors = {};
-
-    if (!name.trim()) newErrors.name = 'Введите имя';
-    if (!phone.trim() || phone.replace(/\s/g, "").replace(/_/g, "").length !== 17) newErrors.phone = 'Введите корректный номер';
-    if (!comment.trim()) newErrors.comment = 'Введите комментарий';
-    if (selectedBudget === null) newErrors.budget = 'Выберите бюджет';
+    if (!name.trim()) newErrors.name = t('contacts.errors.name');
+    if (!phone.trim() || phone.replace(/\s/g, "").replace(/_/g, "").length !== 17) 
+      newErrors.phone = t('contacts.errors.phone');
+    if (!comment.trim()) newErrors.comment = t('contacts.errors.comment');
+    if (selectedBudget === null) newErrors.budget = t('budget.error');
 
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
     } else {
-      alert('Форма успешно отправлена!');
+      alert(t('success'));
       setName('');
       setPhone('');
       setComment('');
@@ -35,15 +38,16 @@ const AppOrder = () => {
     }
   };
 
+  if (!ready) return <LoadingSpinner />;
   return (
     <div className={styles.container}>
      <Header/>
       <main>
         <div className={styles.mainContainer}>
-          <h1>Заказать приложение</h1>
+        <h1>{t('title')}</h1>
           <div className={styles.mainContent}>
             <section className={styles.budget}>
-              <h2>Бюджет проекта:</h2>
+            <h2>{t('budget.title')}</h2>
               <div className={styles.budgetGrid} id="budgetGrid">
                 {[680, 1700, 3400, 17000, 34000, 68000].map((amount, index) => (
                   <div
@@ -58,13 +62,13 @@ const AppOrder = () => {
               {errors.budget && <p className={styles.error}>{errors.budget}</p>}
             </section>
             <section className={styles.contactData}>
-              <h2>Контакты:</h2>
+            <h2>{t('contacts.title')}</h2>
               <form id="orderForm" className={styles.formContainer} onSubmit={handleSubmit}>
                 <div className={styles.formGroup}>
                   <input
                     type="text"
                     id="name"
-                    placeholder="Имя"
+                    placeholder={t('contacts.name')}
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     required
@@ -86,14 +90,14 @@ const AppOrder = () => {
                 <div className={styles.formGroup}>
                   <textarea
                     id="comment"
-                    placeholder="Комментарий"
+                    placeholder={t('contacts.comment')}
                     value={comment}
                     onChange={(e) => setComment(e.target.value)}
                     required
                   />
                   {errors.comment && <p className={styles.error}>{errors.comment}</p>}
                 </div>
-                <button type="submit">Заказать обратный звонок</button>
+                <button type="submit">{t('submit')}</button>
               </form>
             </section>
           </div>
@@ -104,5 +108,10 @@ const AppOrder = () => {
     </div>
   );
 };
-
-export default AppOrder;
+export default function WrappedAppOrder() {
+  return (
+    <Suspense fallback={<LoadingSpinner />}>
+      <AppOrder />
+    </Suspense>
+  );
+}
