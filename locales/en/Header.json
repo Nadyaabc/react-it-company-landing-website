@@ -1,0 +1,15 @@
+{
+    "nav": {
+      "home": "Home",
+      "about": "About Us",
+      "stages": "Work Stages",
+      "pricing": "Pricing",
+      "order": "Order App"
+    },
+    "contacts": {
+      "phone": "+375 (17) 318-17-98",
+      "email": "softerio_tech@gmail.com",
+      "schedule": "Working hours: Mon-Fri 9:00-18:00"
+    },
+    "logo":"../assets/images/svg/logo-en.svg"
+  }

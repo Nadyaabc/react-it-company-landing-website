@@ -1,0 +1,66 @@
+{
+  "hero": {
+    "title": "Mobile app<br>and service<br>development",
+    "points": [
+      "We know how to solve your problem optimally",
+      "We'll find the right solution based on your goals and capabilities"
+    ],
+    "button": "Order app"
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Mobile app and web development for businesses and startups",
+    "items": [
+      {
+        "title": "Mobile app development",
+        "details": ["iOS", "Android"]
+      },
+      {
+        "title": "Web development",
+        "details": ["Frontend", "Backend"]
+      },
+      {
+        "title": "Business expertise consulting",
+        "details": ["Market analysis", "Planning"]
+      },
+      {
+        "title": "Mobile app design",
+        "details": ["UI/UX", "Specifications"]
+      },
+      {
+        "title": "App promotion",
+        "details": ["ASO", "Marketing strategies"]
+      },
+      {
+        "title": "Product support and updates",
+        "details": ["Technical support", "Regular updates"]
+      }
+    ]
+  },
+  "solutions": {
+    "title": "What problems can a mobile app solve?",
+    "items": [
+      {
+        "title": "Increase loyalty",
+        "text": "Mobile apps work much faster than websites and can perform many functions even without internet. There's no need to log in each time to place an order or check its status. All this creates a positive user experience."
+      },
+      {
+        "title": "Automate sales",
+        "text": "With an app, it's easier to guide users through each stage of the sales funnel. Through in-app automation, you can demonstrate product value, showcase new features, make additional sales, and remind users about your service via push notifications."
+      },
+      {
+        "title": "Reduce costs",
+        "text": "Mobile services help save on advertising budgets and additional staff. Many marketing campaigns can be run within the app itself, targeting specific user groups, while some customer support tasks can be handled by automated chatbots."
+      },
+      {
+        "title": "Increase profits",
+        "text": "Improved customer service, savings on external advertising platforms, and process automation will positively impact your bottom line. Investments in app development quickly pay off when the interface effectively serves its purpose."
+      }
+    ]
+  },
+  "aria": {
+    "previousSlide": "Previous slide",
+    "nextSlide": "Next slide",
+    "goToSlide": "Go to slide {number}"
+  }
+}

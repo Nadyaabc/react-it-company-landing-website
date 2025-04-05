@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/react-it-company-landing-website/static/css/main.bc3c801c.css",
-    "main.js": "/react-it-company-landing-website/static/js/main.5a4d21aa.js",
+    "main.css": "/react-it-company-landing-website/static/css/main.338260fc.css",
+    "main.js": "/react-it-company-landing-website/static/js/main.669dad39.js",
     "static/js/453.ad6eb26e.chunk.js": "/react-it-company-landing-website/static/js/453.ad6eb26e.chunk.js",
     "static/media/dev-stage-3.svg": "/react-it-company-landing-website/static/media/dev-stage-3.cd7fbe5b374a7187b3e0f70b2349602b.svg",
     "static/media/second-phone.svg": "/react-it-company-landing-website/static/media/second-phone.03015d5da32f3d0a6110b05867594844.svg",
@@ -26,6 +26,7 @@
     "static/media/dev-stage-2.svg": "/react-it-company-landing-website/static/media/dev-stage-2.fc41a72d822b50a4065e4d4ef0215a44.svg",
     "static/media/logo.svg": "/react-it-company-landing-website/static/media/logo.fa2dc870f53d8e5cca3683d41cdffda2.svg",
     "static/media/dev-stage-7.svg": "/react-it-company-landing-website/static/media/dev-stage-7.0667af5a4bd2f6e1ab705e6443045b99.svg",
+    "static/media/logo-en.svg": "/react-it-company-landing-website/static/media/logo-en.810ad35f32ec81fc7cbb965a53b79cac.svg",
     "static/media/dev-stage-5.svg": "/react-it-company-landing-website/static/media/dev-stage-5.bd1eb69d31534d32ea287a2e4720e226.svg",
     "static/media/service-icon2.svg": "/react-it-company-landing-website/static/media/service-icon2.b68ce8fb739967cd955d59ee06774490.svg",
     "static/media/service-icon3.svg": "/react-it-company-landing-website/static/media/service-icon3.4fa3bd98fb5fb77aa805e25a68af050e.svg",
@@ -38,12 +39,13 @@
     "static/media/cup.svg": "/react-it-company-landing-website/static/media/cup.1c7cf445d501a832b90412c36fda1ba8.svg",
     "static/media/telegram-icon.svg": "/react-it-company-landing-website/static/media/telegram-icon.2362de910d2e9f2943266dc3fc225f6b.svg",
     "index.html": "/react-it-company-landing-website/index.html",
-    "main.bc3c801c.css.map": "/react-it-company-landing-website/static/css/main.bc3c801c.css.map",
-    "main.5a4d21aa.js.map": "/react-it-company-landing-website/static/js/main.5a4d21aa.js.map",
+    "static/media/getFetch.cjs": "/react-it-company-landing-website/static/media/getFetch.7a7a1c81840c96d5a3ea.cjs",
+    "main.338260fc.css.map": "/react-it-company-landing-website/static/css/main.338260fc.css.map",
+    "main.669dad39.js.map": "/react-it-company-landing-website/static/js/main.669dad39.js.map",
     "453.ad6eb26e.chunk.js.map": "/react-it-company-landing-website/static/js/453.ad6eb26e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.bc3c801c.css",
-    "static/js/main.5a4d21aa.js"
+    "static/css/main.338260fc.css",
+    "static/js/main.669dad39.js"
   ]
 }

@@ -1,0 +1,21 @@
+{
+    "title": "Order Application",
+    "budget": {
+      "title": "Project Budget:",
+      "range": "{{min}} - {{max}} BYN",
+      "error": "Select budget"
+    },
+    "contacts": {
+      "title": "Contacts:",
+      "name": "Name",
+      "phone": "+375 (00) 000-00-00",
+      "comment": "Comment",
+      "errors": {
+        "name": "Enter name",
+        "phone": "Enter valid phone number",
+        "comment": "Enter comment"
+      }
+    },
+    "submit": "Order callback",
+    "success": "Form submitted successfully!"
+  }
