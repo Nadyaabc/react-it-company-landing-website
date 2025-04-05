@@ -1,9 +1,10 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, Suspense } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import carousel from "../styles/index-second.module.css";
 import styles from "../styles/index.module.css"; // Импорт стилей
 
+import LoadingSpinner from "../components/LoadingSpinner";
 // Импорт изображений
 import rocketIcon from "../assets/images/svg/rocket.svg";
 import mobilePhoneImage from "../assets/images/svg/second-phone.svg";
@@ -13,12 +14,22 @@ import serviceIcon1 from "../assets/images/svg/service-icon1.svg";
 import serviceIcon2 from "../assets/images/svg/service-icon2.svg";
 import serviceIcon3 from "../assets/images/svg/service-icon3.svg";
 
+import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+
 const Main = () => {
   const [index, setIndex] = useState(0); // Текущий индекс слайда
   const [cardWidth, setCardWidth] = useState(410); // Ширина карточки
   const [visibleSlides, setVisibleSlides] = useState(3); // Количество видимых слайдов
   const carouselRef = useRef(null); // Ссылка на карусель
 
+  const serviceIcons = [serviceIcon1, serviceIcon2, serviceIcon3];
+  const { t, ready } = useTranslation("Home");
+  const services = t("services.items", { returnObjects: true });
+  const totalSlides = services.length;
+  const maxIndex = Math.max(0, totalSlides - visibleSlides);
+
+  /*
   const services = [
     {
       icon: serviceIcon1,
@@ -54,7 +65,7 @@ const Main = () => {
 
   const totalSlides = services.length; // Общее количество слайдов
   const maxIndex = Math.max(0, totalSlides - visibleSlides); // Максимальный индекс
-
+*/
   // Обновление ширины карточки и количества видимых слайдов
   const updateCardWidth = () => {
     const screenWidth = window.innerWidth;
@@ -113,6 +124,7 @@ const Main = () => {
     return () => window.removeEventListener("resize", updateCardWidth);
   }, []);
 
+  if (!ready) return <LoadingSpinner />;
   return (
     <div className={styles.container}>
       <Header />
@@ -120,46 +132,41 @@ const Main = () => {
         <div className={styles.introduction}>
           <div className={styles.content}>
             <div className={styles.textBox}>
-              <h1 className={styles.mainTitle}>
-                Разработка <br />
-                мобильных <br />
-                приложений <br />и сервисов
-              </h1>
+              <h1
+                className={styles.mainTitle}
+                dangerouslySetInnerHTML={{ __html: t("hero.title") }}
+              />
               <div className={styles.iconsText}>
                 <div className={styles.iconDescription}>
                   <img className="icons" src={rocketIcon} alt="rocket" />
-                  <p>Знаем, как решить вашу задачу оптимальным способом</p>
+                  <p>{t("hero.points.0")}</p>
                 </div>
                 <div className={styles.iconDescription}>
-                  <img  className="icons" src={cupIcon} alt="cup" />
-                  <p>
-                    Подберем подходящее решение с учетом целей и возможностей
-                  </p>
+                  <img className="icons" src={cupIcon} alt="cup" />
+                  <p>{t("hero.points.1")}</p>
                 </div>
               </div>
-              <a href="/react-it-company-landing-website/app-order" className={styles.button}>
-                Заказать приложение
-              </a>
+              <Link to="/app-order" className={styles.button}>
+                {t("hero.button")}
+              </Link>
             </div>
             <div className={styles.picture}>
-              <img src={mainPhone} alt="main-phone" />
+              <img src={mainPhone} alt="main-phone" loading="lazy" />
             </div>
           </div>
         </div>
         <div className={styles.services}>
           <div className={styles.content}>
             <div className={styles.title}>
-              <h1>Наши услуги</h1>
-              <p>
-                Разработка мобильных приложений и веб-проектов для бизнеса и
-                стартапов
-              </p>
+              <h1>{t("services.title")}</h1>
+              <p>{t("services.subtitle")}</p>
             </div>
             <section className={carousel.serviceGrid}>
               <div className={carousel.carouselOuter}>
                 <button
                   className={`${carousel.carouselButton} ${carousel.prev}`}
                   onClick={prevSlide}
+                  aria-label={t("aria.previousSlide")}
                 >
                   ❮
                 </button>
@@ -182,8 +189,14 @@ const Main = () => {
                         >
                           <div className={styles.cardContent}>
                             <div className={styles.heading}>
-                              <img src={service.icon} alt="icon" />
-                              <h3 className={styles.serviceTitle}>{service.title}</h3>
+                              <img
+                                src={serviceIcons[i % 3]}
+                                alt={service.title}
+                                loading="lazy"
+                              />
+                              <h3 className={styles.serviceTitle}>
+                                {service.title}
+                              </h3>
                             </div>
                             <div className={styles.ovalContainer}>
                               {service.details.map((detail, j) => (
@@ -201,6 +214,7 @@ const Main = () => {
                 <button
                   className={`${carousel.carouselButton} ${carousel.next}`}
                   onClick={nextSlide}
+                  aria-label={t("aria.nextSlide")}
                 >
                   &#10095;
                 </button>
@@ -222,76 +236,37 @@ const Main = () => {
         <div className={styles.problemSolving}>
           <div className={styles.content}>
             <div className={styles.title}>
-              <h1>Какие задачи поможет решить запуск мобильного приложения</h1>
+              <h1>{t("solutions.title")}</h1>{" "}
             </div>
             <div className={styles.grid}>
               <div className={styles.text}>
-                <div className={styles.textBox}>
-                  <div className={styles.pointTitle}>
-                    <span className={styles.point}>1</span>
-                    <h3>Повысить лояльность</h3>
+                {[0, 1].map((i) => (
+                  <div key={i} className={styles.textBox}>
+                    <div className={styles.pointTitle}>
+                      <span className={styles.point}>{i + 1}</span>
+                      <h3>{t(`solutions.items.${i}.title`)}</h3>
+                    </div>
+                    <div className={styles.pointDesc}>
+                      <p>{t(`solutions.items.${i}.text`)}</p>
+                    </div>
                   </div>
-                  <div className={styles.pointDesc}>
-                    <p>
-                      Мобильное приложение работает намного быстрее сайта и
-                      может выполнять многие функции даже без интернета. Также
-                      здесь не нужно каждый раз авторизовываться, чтобы оформить
-                      заказ или отследить его статус. Все это создает
-                      положительный пользовательский опыт.
-                    </p>
-                  </div>
-                </div>
-                <div className={styles.textBox}>
-                  <div className={styles.pointTitle}>
-                    <span className={styles.point}>2</span>
-                    <h3>Автоматизировать продажи</h3>
-                  </div>
-                  <div className={styles.pointDesc}>
-                    <p>
-                      С приложением легче провести пользователя по каждому этапу
-                      воронки продаж. С помощью автоматизации внутри интерфейса
-                      можно показывать ценность продукта, рассказывать о новых
-                      функциях, делать допродажи и напоминать о себе с помощью
-                      пуш-уведомлений.
-                    </p>
-                  </div>
-                </div>
+                ))}
               </div>
               <div className={styles.mobilePhone}>
                 <img src={mobilePhoneImage} alt="mobile-phone" />
               </div>
               <div className={styles.text}>
-                <div className={styles.textBox}>
-                  <div className={styles.pointTitle}>
-                    <span className={styles.point}>3</span>
-                    <h3>Сократить издержки</h3>
+                {[2, 3].map((i) => (
+                  <div key={i} className={styles.textBox}>
+                    <div className={styles.pointTitle}>
+                      <span className={styles.point}>{i + 1}</span>
+                      <h3>{t(`solutions.items.${i}.title`)}</h3>
+                    </div>
+                    <div className={styles.pointDesc}>
+                      <p>{t(`solutions.items.${i}.text`)}</p>
+                    </div>
                   </div>
-                  <div className={styles.pointDesc}>
-                    <p>
-                      Мобильный сервис помогает сэкономить на рекламном бюджете
-                      и дополнительных сотрудниках. Например, многие
-                      маркетинговые акции можно проводить в самом приложении и
-                      адаптировать рекламу под целевых пользователей, а часть
-                      работы службы поддержки делегировать автоматическим
-                      чат-ботам.
-                    </p>
-                  </div>
-                </div>
-                <div className={styles.textBox}>
-                  <div className={styles.pointTitle}>
-                    <span className={styles.point}>4</span>
-                    <h3>Увеличить прибыль</h3>
-                  </div>
-                  <div className={styles.pointDesc}>
-                    <p>
-                      Повышение уровня клиентского сервиса, экономия на закупке
-                      рекламы на других площадках и автоматизации процессов
-                      положительно скажется и на итоговой выручке. Вложения в
-                      разработку приложения быстро окупятся, если интерфейс
-                      хорошо справляется со своими задачами.
-                    </p>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
           </div>
@@ -302,4 +277,10 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default function WrappedMain() {
+  return (
+    <Suspense fallback={<LoadingSpinner />}>
+      <Main />
+    </Suspense>
+  );
+}
