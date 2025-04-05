@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/react-it-company-landing-website/static/css/main.2077a186.css",
-    "main.js": "/react-it-company-landing-website/static/js/main.676bffea.js",
+    "main.js": "/react-it-company-landing-website/static/js/main.0789b0f1.js",
     "static/js/453.ad6eb26e.chunk.js": "/react-it-company-landing-website/static/js/453.ad6eb26e.chunk.js",
     "static/media/dev-stage-3.svg": "/react-it-company-landing-website/static/media/dev-stage-3.cd7fbe5b374a7187b3e0f70b2349602b.svg",
     "static/media/second-phone.svg": "/react-it-company-landing-website/static/media/second-phone.03015d5da32f3d0a6110b05867594844.svg",
@@ -41,11 +41,11 @@
     "index.html": "/react-it-company-landing-website/index.html",
     "static/media/getFetch.cjs": "/react-it-company-landing-website/static/media/getFetch.7a7a1c81840c96d5a3ea.cjs",
     "main.2077a186.css.map": "/react-it-company-landing-website/static/css/main.2077a186.css.map",
-    "main.676bffea.js.map": "/react-it-company-landing-website/static/js/main.676bffea.js.map",
+    "main.0789b0f1.js.map": "/react-it-company-landing-website/static/js/main.0789b0f1.js.map",
     "453.ad6eb26e.chunk.js.map": "/react-it-company-landing-website/static/js/453.ad6eb26e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.2077a186.css",
-    "static/js/main.676bffea.js"
+    "static/js/main.0789b0f1.js"
   ]
 }
