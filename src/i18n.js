@@ -7,13 +7,13 @@ i18n
   .use(Backend)
   .use(initReactI18next)
   .init({
-    fallbackLng: 'en',
+    fallbackLng: 'ru',
     debug: false,
     interpolation: {
       escapeValue: false,
     },
     backend: {
-      loadPath: '/react-it-company-landing-website/locales/{{lng}}/{{ns}}.json',
+      loadPath: `${process.env.PUBLIC_URL}/locales/{{lng}}/{{ns}}.json`,
     }
   });
 

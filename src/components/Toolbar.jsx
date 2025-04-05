@@ -1,8 +1,10 @@
 import { useState, useEffect, Suspense } from 'react';
 import { useTranslation } from 'react-i18next';
-
 import './Toolbar.css';
 import LoadingSpinner from "../components/LoadingSpinner";
+
+
+
 
 export const Toolbar = () => {
   const { t, i18n } = useTranslation("toolbar");
@@ -18,9 +20,7 @@ export const Toolbar = () => {
     return saved ? parseInt(saved) : 16;
   });
   
-  const [imagesHidden, setImagesHidden] = useState(() => {
-    return localStorage.getItem('imagesHidden') === 'true';
-  });
+  
 
   useEffect(() => {
     if (darkMode) {
@@ -31,14 +31,12 @@ export const Toolbar = () => {
     
     document.documentElement.style.fontSize = `${fontSize}px`;
     
-    document.querySelectorAll('img').forEach(img => {
-      img.style.display = imagesHidden ? 'none' : '';
-    });
 
     localStorage.setItem('darkMode', darkMode);
     localStorage.setItem('fontSize', fontSize);
-    localStorage.setItem('imagesHidden', imagesHidden);
-  }, [darkMode, fontSize, imagesHidden]);
+  }, [darkMode, fontSize]);
+
+  
 
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
@@ -47,7 +45,7 @@ export const Toolbar = () => {
 
   const resetSettings = () => {
     setDarkMode(false);    setFontSize(16);
-    setImagesHidden(false);
+
   };
 
   return (
@@ -128,7 +126,7 @@ export const Toolbar = () => {
             </button>
           </div>
         </div>
-        <div className="toolbar-section">
+        {/*<div className="toolbar-section">
           <label className="toggle-switch">
             <input 
               type="checkbox" 
@@ -138,7 +136,7 @@ export const Toolbar = () => {
             <span className="slider round"></span>
             <span className="toggle-label">{t('toolbar.hide_images')}</span>
           </label>
-        </div>
+        </div>*/}
       </div>
     </div>
   );

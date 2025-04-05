@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {  Suspense } from "react";
 import { Link, useLocation } from 'react-router-dom'; // Импорт Link и useLocation
 import styles from '../styles/footer.module.css'; // Импорт стилей
 import logo from '../assets/images/svg/logo.svg';
@@ -7,10 +7,12 @@ import viberIcon from '../assets/images/svg/viber-icon.svg';
 import logoEn from '../assets/images/svg/logo-en.svg';
 import logoRu from '../assets/images/svg/logo.svg';
 import { useTranslation } from 'react-i18next';
+
+import LoadingSpinner from "../components/LoadingSpinner";
 const Footer = () => {
   const location = useLocation(); // Получаем текущее местоположение
-  const { t,i18n } = useTranslation('header');
-  
+  const { t,i18n, ready } = useTranslation('Header');
+  if (!ready) return <LoadingSpinner />;
   const logo = i18n.language === 'ru' ? logoRu : logoEn;
   return (
     <footer className={styles.footer}>
@@ -53,4 +55,10 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default function WrappedFooter() {
+  return (
+    <Suspense fallback={<LoadingSpinner />}>
+      <Footer />
+    </Suspense>
+  );
+}

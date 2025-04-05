@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from "react";
 import { Link, useLocation } from 'react-router-dom'; // Импорт Link и useLocation
 import styles from '../styles/header.module.css'; // Импорт стилей
 import logo from '../assets/images/svg/logo.svg';
@@ -7,11 +7,14 @@ import viberIcon from '../assets/images/svg/viber-icon.svg';
 import logoEn from '../assets/images/svg/logo-en.svg';
 import logoRu from '../assets/images/svg/logo.svg';
 import { useTranslation } from 'react-i18next';
+
+import LoadingSpinner from "../components/LoadingSpinner";
 const Header = () => {
   const location = useLocation(); // Получаем текущее местоположение
-  const { t,i18n } = useTranslation('header');
-  
+  const { t,i18n, ready } = useTranslation('Header');
+  if (!ready) return <LoadingSpinner />;
 const logo = i18n.language === 'ru' ? logoRu : logoEn;
+
   return (
     <header className={styles.header}>
       <div className={styles.logo}>
@@ -52,4 +55,10 @@ const logo = i18n.language === 'ru' ? logoRu : logoEn;
   );
 };
 
-export default Header;
+export default function WrappedHeader() {
+  return (
+    <Suspense fallback={<LoadingSpinner />}>
+      <Header />
+    </Suspense>
+  );
+}

@@ -45,7 +45,7 @@ const DevStages = () => {
           </div>
         ))}
           <div className={styles.item}>
-          <Link to="/app-order">{t('cta')}</Link>
+          <Link to="/app-order" className={styles.button}>{t('cta')}</Link>
           {/*  <a href="../pages/app-order.html" className={styles.button}>{t('cta')}</a>*/}
           </div>
         </div>

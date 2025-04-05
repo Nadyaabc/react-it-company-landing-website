@@ -1,10 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+import { Toolbar } from './components/Toolbar.jsx';
 import DevStages from './pages/DevStages'
 import Pricing from './pages/Pricing' // Страница "О нас"
 import Home from './pages/Home'
 import AppOrder from './pages/AppOrder'
-import { Toolbar } from './components/Toolbar.jsx';
 import './i18n';
 import AboutUs from './pages/AboutUs';
 import './App.css';
