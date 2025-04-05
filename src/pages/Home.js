@@ -162,7 +162,7 @@ const Main = () => {
               <p>{t("services.subtitle")}</p>
             </div>
             <section className={carousel.serviceGrid}>
-              <div className={carousel.carouselOuter}>
+              <div className={carousel.carouselControls}>
                 <button
                   className={`${carousel.carouselButton} ${carousel.prev}`}
                   onClick={prevSlide}
@@ -170,44 +170,48 @@ const Main = () => {
                 >
                   ❮
                 </button>
-                <div className={carousel.carouselContainer}>
-                  <div className={carousel.carouselWrapper}>
-                    <div
-                      className={carousel.carousel}
-                      ref={carouselRef}
-                      style={{
-                        display: "flex",
-                        gap: "30px",
-                        transition: "transform 0.5s ease-in-out",
-                      }}
-                    >
-                      {services.map((service, i) => (
-                        <div
-                          key={i}
-                          className={carousel.serviceCard}
-                          style={{ width: `${cardWidth}px` }}
-                        >
-                          <div className={styles.cardContent}>
-                            <div className={styles.heading}>
-                              <img
+                <div className={carousel.carouselOuter}>
+                  <div className={carousel.carouselContainer}>
+                    <div className={carousel.carouselWrapper}>
+                      <div
+                        className={carousel.carousel}
+                        ref={carouselRef}
+                        style={{
+                          display: "flex",
+                          gap: "30px",
+                          transition: "transform 0.5s ease-in-out",
+                        }}
+                      >
+                        {services.map((service, i) => (
+                          <div
+                            key={i}
+                            className={carousel.serviceCard}
+                            style={{ width: `${cardWidth}px` }}
+                          >
+                            <div className={styles.cardContent}>
+                              <div className={styles.heading}>
+                                <img
                                 src={serviceIcons[i % 3]}
                                 alt={service.title}
                                 loading="lazy"
                               />
-                              <h3 className={styles.serviceTitle}>
+                                <h3 className={styles.serviceTitle}>
+                                  
                                 {service.title}
+                                
                               </h3>
-                            </div>
-                            <div className={styles.ovalContainer}>
-                              {service.details.map((detail, j) => (
-                                <span key={j} className={styles.oval}>
-                                  {detail}
-                                </span>
-                              ))}
+                              </div>
+                              <div className={styles.ovalContainer}>
+                                {service.details.map((detail, j) => (
+                                  <span key={j} className={styles.oval}>
+                                    {detail}
+                                  </span>
+                                ))}
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      ))}
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>

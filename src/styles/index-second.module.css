@@ -2,7 +2,7 @@
 :root {
   /* Базовые настройки */
   --font-family-main: 'Open Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-  
+
   /* Цвета светлой темы */
   --color-primary: #3980ff;
   --color-secondary: #eb5757;
@@ -15,6 +15,8 @@
   --color-shadow: rgba(0, 0, 0, 0.1);
   --color-border: rgba(0, 0, 0, 0.25);
   --color-icon-filter: none;
+  --carousel-button-light:#3980ff;
+  --carousel-button-hover-light: #0c4ab3;
 
   /* Цвета темной темы */
   --color-primary-dark: #5a9cff;
@@ -28,6 +30,8 @@
   --color-shadow-dark: rgba(0, 0, 0, 0.3);
   --color-border-dark: rgba(255, 255, 255, 0.1);
   --color-icon-filter-dark: invert(1) brightness(0.8);
+  --carousel-button-dark:#9e6600;
+  --carousel-button-hover-dark: #835601;
 
   /* Размеры */
   --spacing-xs: 0.5rem;
@@ -35,6 +39,10 @@
   --spacing-md: 1.5rem;
   --spacing-lg: 2rem;
   --spacing-xl: 3rem;
+
+  /*default theme*/
+  --carousel-button: var(--carousel-button-light);
+  --carousel-button-hover: var(--carousel-button-hover-light);
 }
 
 [data-theme="dark"] {
@@ -49,6 +57,8 @@
   --color-shadow: var(--color-shadow-dark);
   --color-border: var(--color-border-dark);
   --color-icon-filter: var(--color-icon-filter-dark);
+  --carousel-button: var(--carousel-button-dark);
+  --carousel-button-hover: var(--carousel-button-hover-dark);
 }
 
 /* Карусель услуг */
@@ -57,11 +67,20 @@
   width: 100%;
   max-width: 1410px;
   margin: var(--spacing-xl) auto 0;
-  padding: 0 60px;
+  padding: 0 51px;
+}
+
+.carouselControls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
 }
 
 .carouselOuter {
-  width: 100%;
+  flex: 1;
+  /*width: 100%;*/
   overflow: hidden;
   position: relative;
 }
@@ -110,7 +129,7 @@
   z-index: 10;
   width: 50px;
   height: 50px;
-  background: var(--color-primary);
+  background: var(--carousel-button);
   color: var(--color-white);
   border: none;
   border-radius: 50%;
@@ -123,7 +142,7 @@
 }
 
 .carouselButton:hover {
-  background: var(--color-dark);
+  background: var(--carousel-button-hover);
   transform: translateY(-50%) scale(1.05);
 }
 
@@ -132,11 +151,11 @@
 }
 
 .prev {
-  left: 0;
+  left: -20px;
 }
 
 .next {
-  right: 0;
+  right: -20px;
 }
 
 .carouselIndicators {
@@ -172,7 +191,7 @@
   .serviceGrid {
     padding: 0 50px;
   }
-  
+
   .serviceCard {
     flex: 0 0 calc(50vw - 60px);
     min-width: 280px;
@@ -191,22 +210,22 @@
   .serviceGrid {
     padding: 0 40px;
   }
-  
+
   .carouselButton {
     width: 40px;
     height: 40px;
   }
-  
+
   .carousel {
     gap: var(--spacing-md);
   }
-  
+
   .serviceCard {
     flex: 0 0 calc(100vw - 100px);
     min-width: 240px;
     padding: var(--spacing-md) var(--spacing-sm);
   }
-  
+
   .carouselIndicators {
     margin-top: var(--spacing-md);
   }
@@ -216,12 +235,12 @@
   .serviceGrid {
     padding: 0 30px;
   }
-  
+
   .serviceCard {
     flex: 0 0 calc(100vw - 80px);
     padding: var(--spacing-sm) var(--spacing-xs);
   }
-  
+
   .carouselButton {
     width: 36px;
     height: 36px;
@@ -233,21 +252,21 @@
   .serviceGrid {
     padding: 0 20px;
   }
-  
+
   .serviceCard {
     flex: 0 0 calc(100vw - 60px);
     padding: var(--spacing-sm) var(--spacing-xs);
   }
-  
+
   .carouselIndicators {
     margin-top: var(--spacing-md);
   }
-  
+
   .indicator {
     width: 20px;
     height: 3px;
   }
-  
+
   .indicatorActive {
     width: 30px;
   }
