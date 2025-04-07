@@ -3,6 +3,7 @@ import styles from '../styles/app-order.module.css';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { useTranslation } from 'react-i18next';
+import InputMask from 'react-input-mask';
 
 import LoadingSpinner from "../components/LoadingSpinner";
 const AppOrder = () => {
@@ -17,11 +18,21 @@ const AppOrder = () => {
     setSelectedBudget(index);
   };
 
+  const validatePhone = (phone) => {
+    const phoneRegex = /^\+375\(\d{2}\)\d{3}-\d{2}-\d{2}$/;
+    return phoneRegex.test(phone);
+  };
+
+  const validateName = (e) => {
+    const value = e.target.value.replace(/[^A-Za-zА-Яа-яЁё]/g, '');
+    setName(value.substring(0, 50));
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const newErrors = {};
     if (!name.trim()) newErrors.name = t('contacts.errors.name');
-    if (!phone.trim() || phone.replace(/\s/g, "").replace(/_/g, "").length !== 17) 
+    if (!phone.trim() || !validatePhone(phone))
       newErrors.phone = t('contacts.errors.phone');
     if (!comment.trim()) newErrors.comment = t('contacts.errors.comment');
     if (selectedBudget === null) newErrors.budget = t('budget.error');
@@ -70,21 +81,28 @@ const AppOrder = () => {
                     id="name"
                     placeholder={t('contacts.name')}
                     value={name}
-                    onChange={(e) => setName(e.target.value)}
+                    onChange={validateName}
                     required
                   />
                   {errors.name && <p className={styles.error}>{errors.name}</p>}
                 </div>
                 <div className={styles.formGroup}>
-                  <input
-                    type="text"
-                    name="phone"
-                    id="userPhone"
-                    placeholder="+375 (00) 000-00-00"
+                  <InputMask
+                    mask="+375(99)999-99-99"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     required
-                  />
+                  >
+                    {(inputProps) => (
+                      <input
+                        {...inputProps}
+                        id="userPhone"
+                        type="text"
+                        placeholder="+375 (00) 000-00-00"
+                        className={styles.input}
+                      />
+                    )}
+                  </InputMask>
                   {errors.phone && <p className={styles.error}>{errors.phone}</p>}
                 </div>
                 <div className={styles.formGroup}>
@@ -103,7 +121,7 @@ const AppOrder = () => {
           </div>
         </div>
       </main>
-      
+
     <Footer/>
     </div>
   );
