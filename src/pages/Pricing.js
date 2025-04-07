@@ -73,9 +73,9 @@ const Pricing = () => {
                     <h2 className={styles.cost}>
                       {formatPrice(parseInt(plans.price))}
                     </h2>
-                    <a className={styles.order} href={plans.link}>
-                      <p className={styles.orderText}>{t("button")}</p>
-                    </a>
+                    <Link className={styles.order} to="/app-order">
+  <p className={styles.orderText}>{t("button")}</p>
+</Link>
                   </div>
                 </div>
               ))}
