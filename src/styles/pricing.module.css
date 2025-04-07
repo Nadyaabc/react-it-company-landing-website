@@ -289,17 +289,17 @@ h2.cost {
   background-color: var(--clr-card);
   border-radius: 20px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
 .customPlanSection h2 {
   font-size: var(--text-h2);
   margin-bottom: 20px;
-  text-align: center;
 }
 
-.customPlanSection p {
-  text-align: center;
+.firstParagraph {
   margin-bottom: 30px;
+  text-align: center;
   font-size: var(--text-card);
 }
 
@@ -314,24 +314,24 @@ h2.cost {
   min-width: 100px;
 }
 
-.featureItem {
+.orderPriceText {
+  margin: 0;
+  text-align: center;
+  font-size: var(--text-card);
+}
+
+/*.featureItem {
   box-sizing: border-box;
   margin-bottom: 15px;
   padding: 15px;
   background-color: var(--feature-item);
   border-radius: 10px;
-  /*transition: all 0.3s ease;*/
   transition: background-color 0.3s ease, outline 0.3s ease;
 }
 
-.featureItem.selected {
-  border-color: var(--feature-item-hover);
-  border: 1px solid var(--feature-item-border);
-  padding: 14px;
-}
-
+.featureItem.selected,
 .featureItem:hover {
-  background-color: var(--feature-item-hover);
+  border-color: var(--feature-item-hover);
   border: 1px solid var(--feature-item-border);
   padding: 14px;
 }
@@ -369,10 +369,66 @@ h2.cost {
 .featurePrice {
   color: var(--feature-price);
   font-weight: bold;
+}*/
+
+.featuresList {
+  flex: 1;
+  min-width: 100px;
+}
+
+.featureItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+  padding: 15px;
+  background-color: var(--feature-item);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.featureItem.selected,
+.featureItem:hover {
+  background-color: var(--feature-item-hover);
+  border: 1px solid var(--feature-item-border);
+  padding: 14px;
+}
+
+.featureItem input[type="checkbox"] {
+  margin-right: 10px;
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.spanPrice {
+  font-size: var(--text-card);
+}
+
+.featureItem span:first-of-type {
+  flex: 1;
+  text-align: left;
+  margin-left: 20px;
+  font-size: var(--text-card);
+}
+
+.featurePrice {
+  color: var(--feature-price);
+  font-weight: bold;
+  font-size: var(--text-card);
+  text-align: right;
+  margin-left: 20px;
+}
+
+.spanPrice {
+  margin: 0;
+  font-size: var(-text-h3);
 }
 
 .customPlanSummary {
-  flex: 0 0 500px;
+  flex: 0 0 40%;
   padding: 20px;
   background-color: var(--feature-item);
   border-radius: 10px;
@@ -381,6 +437,7 @@ h2.cost {
 .customPlanSummary h3 {
   font-size: var(--text-h3);
   margin-bottom: 20px;
+  margin-top: 0;
   text-align: center;
 }
 

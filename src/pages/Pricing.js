@@ -9,10 +9,10 @@ import redTick from "../assets/images/png/red-tick.png";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { useTranslation } from "react-i18next";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
 import LoadingSpinner from "../components/LoadingSpinner";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 const Pricing = () => {
   const { t, ready } = useTranslation("Pricing");
   const pricingData = t("plans", { returnObjects: true });
@@ -74,8 +74,8 @@ const Pricing = () => {
                       {formatPrice(parseInt(plans.price))}
                     </h2>
                     <Link className={styles.order} to="/app-order">
-  <p className={styles.orderText}>{t("button")}</p>
-</Link>
+                      <p className={styles.orderText}>{t("button")}</p>
+                    </Link>
                   </div>
                 </div>
               ))}
@@ -93,12 +93,31 @@ const Pricing = () => {
             {showCustomPlan && (
               <section className={styles.customPlanSection}>
                 <h2>{t("individualPlan")}</h2>
-                <p>{t("functionChoice")}</p>
+                <p className={styles.firstParagraph}>{t("functionChoice")}</p>
 
                 <div className={styles.customPlanGrid}>
                   <div className={styles.featuresList}>
-                    {allFeatures.map((feature) => (
-                      <div
+                  {allFeatures.map((feature) => (
+                    <label
+                      key={feature.id}
+                      className={`${styles.featureItem} ${
+                        selectedFeatures.some((f) => f.id === feature.id)
+                          ? styles.selected
+                          : ""
+                      }`}
+                    >
+                      <input
+                        type="checkbox"
+                        checked={selectedFeatures.some((f) => f.id === feature.id)}
+                        onChange={() => handleFeatureToggle(feature)}
+                      />
+                      <span>{feature.name}</span>
+                      <span className={styles.featurePrice}>
+                        +{formatPrice(feature.price)}
+                      </span>
+                    </label>
+                  ))}
+                     { /*<div
                         key={feature.id}
                         className={`${styles.featureItem} ${
                           selectedFeatures.some((f) => f.id === feature.id)
@@ -106,7 +125,7 @@ const Pricing = () => {
                             : ""
                         }`}
                       >
-                        <label>
+                        /*<label className={styles.checkboxLabel}>
                           <input
                             type="checkbox"
                             checked={selectedFeatures.some(
@@ -119,8 +138,8 @@ const Pricing = () => {
                             +{formatPrice(feature.price)}
                           </span>
                         </label>
-                      </div>
-                    ))}
+                      </div>*/}
+
                   </div>
 
                   <div className={styles.customPlanSummary}>
@@ -131,7 +150,7 @@ const Pricing = () => {
                           {selectedFeatures.map((feature) => (
                             <li key={feature.id}>
                               {feature.name}
-                              <span className="spanPrice">
+                              <span className={styles.spanPrice}>
                                 {formatPrice(feature.price)}
                               </span>
                             </li>
@@ -143,7 +162,7 @@ const Pricing = () => {
                         </div>
                         <a className={styles.orderPrice} onClick={handleOrder}>
                           <p className={styles.orderPriceText}>
-                          {t("placeOrder")}
+                            {t("placeOrder")}
                           </p>
                         </a>
                       </>
