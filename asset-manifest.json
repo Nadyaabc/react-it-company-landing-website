@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/react-it-company-landing-website/static/css/main.40344307.css",
-    "main.js": "/react-it-company-landing-website/static/js/main.788b9187.js",
+    "main.css": "/react-it-company-landing-website/static/css/main.da85c001.css",
+    "main.js": "/react-it-company-landing-website/static/js/main.63d1b856.js",
     "static/js/453.ad6eb26e.chunk.js": "/react-it-company-landing-website/static/js/453.ad6eb26e.chunk.js",
     "static/media/dev-stage-3.svg": "/react-it-company-landing-website/static/media/dev-stage-3.cd7fbe5b374a7187b3e0f70b2349602b.svg",
     "static/media/second-phone.svg": "/react-it-company-landing-website/static/media/second-phone.03015d5da32f3d0a6110b05867594844.svg",
@@ -40,12 +40,12 @@
     "static/media/telegram-icon.svg": "/react-it-company-landing-website/static/media/telegram-icon.2362de910d2e9f2943266dc3fc225f6b.svg",
     "index.html": "/react-it-company-landing-website/index.html",
     "static/media/getFetch.cjs": "/react-it-company-landing-website/static/media/getFetch.7a7a1c81840c96d5a3ea.cjs",
-    "main.40344307.css.map": "/react-it-company-landing-website/static/css/main.40344307.css.map",
-    "main.788b9187.js.map": "/react-it-company-landing-website/static/js/main.788b9187.js.map",
+    "main.da85c001.css.map": "/react-it-company-landing-website/static/css/main.da85c001.css.map",
+    "main.63d1b856.js.map": "/react-it-company-landing-website/static/js/main.63d1b856.js.map",
     "453.ad6eb26e.chunk.js.map": "/react-it-company-landing-website/static/js/453.ad6eb26e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.40344307.css",
-    "static/js/main.788b9187.js"
+    "static/css/main.da85c001.css",
+    "static/js/main.63d1b856.js"
   ]
 }
