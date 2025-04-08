@@ -20,11 +20,12 @@ function App() {
       autoClose={2000}
       hideProgressBar={false}
       newestOnTop
-      closeOnClick
+      closeOnClick={true}
       rtl={false}
       pauseOnFocusLoss
       draggable
       pauseOnHover
+      closeButton={({ closeToast }) => null} 
     />
     <I18nextProvider i18n={i18n}>
     <Router basename="/react-it-company-landing-website">
